@@ -48,6 +48,9 @@ public class FacultyInfo extends javax.swing.JFrame {
         semComboBox = new javax.swing.JComboBox<>();
         batchComboBox = new javax.swing.JComboBox<>();
         nextButton = new javax.swing.JButton();
+        departmentname = new javax.swing.JLabel();
+        departmentComboBox = new javax.swing.JComboBox<>();
+        addFacultyButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +111,17 @@ public class FacultyInfo extends javax.swing.JFrame {
             }
         });
 
+        departmentname.setText("Name of Department");
+
+        departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        addFacultyButton.setText("Add Faculty");
+        addFacultyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFacultyButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,32 +150,40 @@ public class FacultyInfo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(facultyTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
-                    .addComponent(facultyTypeCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(programNature)
-                            .addComponent(batchYr))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(facultyTextField2))
+                            .addComponent(facultyTypeCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(programNature)
+                                    .addComponent(batchYr))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(departmentname)
+                        .addGap(57, 57, 57)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(batchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(departmentComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(nextButton))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(facultyTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
-                            .addComponent(facultyTypeCombo3, javax.swing.GroupLayout.Alignment.LEADING, 0, 146, Short.MAX_VALUE)
+                                .addComponent(facultyTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                            .addComponent(facultyTypeCombo3, javax.swing.GroupLayout.Alignment.LEADING, 0, 128, Short.MAX_VALUE)
                             .addComponent(natureProComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(145, 145, 145))))
+                        .addGap(37, 37, 37)
+                        .addComponent(addFacultyButton)
+                        .addGap(33, 33, 33))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -175,7 +197,9 @@ public class FacultyInfo extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(instituteNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(instituteNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(departmentname)
+                    .addComponent(departmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -184,8 +208,9 @@ public class FacultyInfo extends javax.swing.JFrame {
                     .addComponent(facultyTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(facultyTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addFacultyButton))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(facultyTypeCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,6 +245,13 @@ public class FacultyInfo extends javax.swing.JFrame {
         c.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void addFacultyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFacultyButtonActionPerformed
+        // TODO add your handling code here:
+        AddFaculty af = new AddFaculty();
+        this.setVisible(false);
+        af.setVisible(true);
+    }//GEN-LAST:event_addFacultyButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,8 +289,11 @@ public class FacultyInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addFacultyButton;
     private javax.swing.JComboBox<String> batchComboBox;
     private javax.swing.JLabel batchYr;
+    private javax.swing.JComboBox<String> departmentComboBox;
+    private javax.swing.JLabel departmentname;
     private javax.swing.JTextField facultyTextField1;
     private javax.swing.JTextField facultyTextField2;
     private javax.swing.JTextField facultyTextField3;
