@@ -115,8 +115,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
-        FacultyInfo f = new FacultyInfo();
-        f.setVisible(true);
+        AuditType at = new AuditType();
+        at.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_SignInActionPerformed
 
