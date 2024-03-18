@@ -51,6 +51,11 @@ public class Course extends javax.swing.JFrame {
         creditsTextField.setText("0");
 
         nextButton.setText("Next");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
         prevButton.setText("Previous");
         prevButton.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +139,13 @@ public class Course extends javax.swing.JFrame {
         fi.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_prevButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        // TODO add your handling code here:
+        Internal_Assessments i = new Internal_Assessments();
+        i.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_nextButtonActionPerformed
 
     /**
      * @param args the command line arguments
