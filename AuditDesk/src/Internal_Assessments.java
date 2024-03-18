@@ -27,26 +27,12 @@ public class Internal_Assessments extends javax.swing.JFrame {
 
         assessment_variable = new javax.swing.JLabel();
         ia_types = new javax.swing.JLabel();
+        quiz = new javax.swing.JLabel();
+        yes_1 = new javax.swing.JRadioButton();
+        no = new javax.swing.JRadioButton();
         class_test = new javax.swing.JLabel();
-        date_of_planned_assessment = new javax.swing.JLabel();
-        date_assessment_p = new javax.swing.JTextField();
-        date_of_conducted_assessment1 = new javax.swing.JLabel();
-        date_assessment_c1 = new javax.swing.JTextField();
-        result_date = new javax.swing.JLabel();
-        result_declared = new javax.swing.JTextField();
-        signature_student = new javax.swing.JLabel();
         yes = new javax.swing.JRadioButton();
         no1 = new javax.swing.JRadioButton();
-        quiz1 = new javax.swing.JLabel();
-        date_of_planned_assessment1 = new javax.swing.JLabel();
-        date_assessment_p1 = new javax.swing.JTextField();
-        date_of_conducted_assessment2 = new javax.swing.JLabel();
-        date_assessment_c2 = new javax.swing.JTextField();
-        result_date1 = new javax.swing.JLabel();
-        result_declared1 = new javax.swing.JTextField();
-        signature_student1 = new javax.swing.JLabel();
-        yes1 = new javax.swing.JRadioButton();
-        no2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,116 +42,54 @@ public class Internal_Assessments extends javax.swing.JFrame {
         ia_types.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ia_types.setText("Internal Assessment Types ");
 
-        class_test.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        quiz.setText("1. Quiz");
+
+        yes_1.setText("Yes");
+        yes_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yes_1ActionPerformed(evt);
+            }
+        });
+
+        no.setText("No");
+
         class_test.setText("2. Class Test");
 
-        date_of_planned_assessment.setText("a. Date of Planned Assessment: ");
-
-        date_assessment_p.setText("YYYY/MM/DD");
-
-        date_of_conducted_assessment1.setText("b. Date of Conducted Assessment: ");
-
-        date_assessment_c1.setText("YYYY/MM/DD");
-
-        result_date.setText("c. Result Date: ");
-
-        result_declared.setText("YYYY/MM/DD");
-
-        signature_student.setText("d. Signature of Students on mark sheet  ");
-
         yes.setText("Yes");
+        yes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesActionPerformed(evt);
+            }
+        });
 
         no1.setText("No");
-
-        quiz1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        quiz1.setText("1. Quiz");
-
-        date_of_planned_assessment1.setText("a. Date of Planned Assessment: ");
-
-        date_assessment_p1.setText("YYYY/MM/DD");
-
-        date_of_conducted_assessment2.setText("b. Date of Conducted Assessment: ");
-
-        date_assessment_c2.setText("YYYY/MM/DD");
-
-        result_date1.setText("c. Result Date: ");
-
-        result_declared1.setText("YYYY/MM/DD");
-
-        signature_student1.setText("d. Signature of Students on mark sheet  ");
-
-        yes1.setText("Yes");
-
-        no2.setText("No");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(281, Short.MAX_VALUE)
-                .addComponent(assessment_variable)
-                .addGap(262, 262, 262))
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(class_test)
-                            .addComponent(ia_types))
-                        .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(quiz)
+                                .addGap(18, 18, 18)
+                                .addComponent(yes_1)
+                                .addGap(18, 18, 18)
+                                .addComponent(no))
+                            .addComponent(ia_types)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(class_test)
+                                .addGap(18, 18, 18)
+                                .addComponent(yes)
+                                .addGap(18, 18, 18)
+                                .addComponent(no1))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(date_of_planned_assessment)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(date_assessment_p, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(result_date)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(result_declared, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(date_of_planned_assessment1)
-                                .addGap(18, 18, 18)
-                                .addComponent(date_assessment_p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(result_date1)
-                                .addGap(18, 18, 18)
-                                .addComponent(result_declared1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(signature_student)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(yes)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(no1))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(date_of_conducted_assessment2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(date_assessment_c2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(date_of_conducted_assessment1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(date_assessment_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(signature_student1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(yes1)
-                                .addGap(18, 18, 18)
-                                .addComponent(no2)
-                                .addGap(75, 75, 75))))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(70, 70, 70)
-                    .addComponent(quiz1)
-                    .addContainerGap(665, Short.MAX_VALUE)))
+                        .addGap(118, 118, 118)
+                        .addComponent(assessment_variable)))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,44 +98,35 @@ public class Internal_Assessments extends javax.swing.JFrame {
                 .addComponent(assessment_variable)
                 .addGap(18, 18, 18)
                 .addComponent(ia_types)
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date_of_planned_assessment)
-                    .addComponent(date_assessment_p, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(date_of_conducted_assessment1)
-                    .addComponent(date_assessment_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(result_date)
-                    .addComponent(result_declared, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signature_student1)
-                    .addComponent(yes1)
-                    .addComponent(no2))
-                .addGap(26, 26, 26)
-                .addComponent(class_test)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date_of_planned_assessment1)
-                    .addComponent(date_assessment_p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(date_of_conducted_assessment2)
-                    .addComponent(date_assessment_c2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(result_date1)
-                    .addComponent(result_declared1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signature_student)
+                    .addComponent(quiz)
+                    .addComponent(yes_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(no))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(class_test)
                     .addComponent(yes)
                     .addComponent(no1))
-                .addContainerGap(75, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(125, 125, 125)
-                    .addComponent(quiz1)
-                    .addContainerGap(262, Short.MAX_VALUE)))
+                .addGap(111, 111, 111))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void yes_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yes_1ActionPerformed
+        // TODO add your handling code here:
+        Quiz q = new Quiz();
+        q.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_yes_1ActionPerformed
+
+    private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
+        // TODO add your handling code here:
+        Class_Test c = new Class_Test();
+        c.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_yesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,25 +166,11 @@ public class Internal_Assessments extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assessment_variable;
     private javax.swing.JLabel class_test;
-    private javax.swing.JTextField date_assessment_c1;
-    private javax.swing.JTextField date_assessment_c2;
-    private javax.swing.JTextField date_assessment_p;
-    private javax.swing.JTextField date_assessment_p1;
-    private javax.swing.JLabel date_of_conducted_assessment1;
-    private javax.swing.JLabel date_of_conducted_assessment2;
-    private javax.swing.JLabel date_of_planned_assessment;
-    private javax.swing.JLabel date_of_planned_assessment1;
     private javax.swing.JLabel ia_types;
+    private javax.swing.JRadioButton no;
     private javax.swing.JRadioButton no1;
-    private javax.swing.JRadioButton no2;
-    private javax.swing.JLabel quiz1;
-    private javax.swing.JLabel result_date;
-    private javax.swing.JLabel result_date1;
-    private javax.swing.JTextField result_declared;
-    private javax.swing.JTextField result_declared1;
-    private javax.swing.JLabel signature_student;
-    private javax.swing.JLabel signature_student1;
+    private javax.swing.JLabel quiz;
     private javax.swing.JRadioButton yes;
-    private javax.swing.JRadioButton yes1;
+    private javax.swing.JRadioButton yes_1;
     // End of variables declaration//GEN-END:variables
 }
