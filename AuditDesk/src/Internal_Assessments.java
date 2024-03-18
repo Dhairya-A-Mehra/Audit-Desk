@@ -28,11 +28,22 @@ public class Internal_Assessments extends javax.swing.JFrame {
         assessment_variable = new javax.swing.JLabel();
         ia_types = new javax.swing.JLabel();
         quiz = new javax.swing.JLabel();
-        yes_1 = new javax.swing.JRadioButton();
-        no = new javax.swing.JRadioButton();
         class_test = new javax.swing.JLabel();
-        yes = new javax.swing.JRadioButton();
-        no1 = new javax.swing.JRadioButton();
+        lab_test = new javax.swing.JLabel();
+        case_study = new javax.swing.JLabel();
+        assignment = new javax.swing.JLabel();
+        quiz1 = new javax.swing.JCheckBox();
+        lab_test_check = new javax.swing.JCheckBox();
+        class_test_checkbox = new javax.swing.JCheckBox();
+        case_study_check = new javax.swing.JCheckBox();
+        assignment_check = new javax.swing.JCheckBox();
+        presentation = new javax.swing.JLabel();
+        presentation_check = new javax.swing.JCheckBox();
+        mini_project = new javax.swing.JLabel();
+        mini_project_check = new javax.swing.JCheckBox();
+        mini_project1 = new javax.swing.JLabel();
+        white_paper = new javax.swing.JCheckBox();
+        submit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,25 +55,63 @@ public class Internal_Assessments extends javax.swing.JFrame {
 
         quiz.setText("1. Quiz");
 
-        yes_1.setText("Yes");
-        yes_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yes_1ActionPerformed(evt);
-            }
-        });
-
-        no.setText("No");
-
         class_test.setText("2. Class Test");
 
-        yes.setText("Yes");
-        yes.addActionListener(new java.awt.event.ActionListener() {
+        lab_test.setText("3. Lab Test");
+
+        case_study.setText("4. Case Study");
+
+        assignment.setText("5. Assignment");
+
+        lab_test_check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yesActionPerformed(evt);
+                lab_test_checkActionPerformed(evt);
             }
         });
 
-        no1.setText("No");
+        class_test_checkbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                class_test_checkboxActionPerformed(evt);
+            }
+        });
+
+        case_study_check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                case_study_checkActionPerformed(evt);
+            }
+        });
+
+        assignment_check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignment_checkActionPerformed(evt);
+            }
+        });
+
+        presentation.setText("6. Presentation");
+
+        presentation_check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                presentation_checkActionPerformed(evt);
+            }
+        });
+
+        mini_project.setText("7. Mini Project");
+
+        mini_project_check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mini_project_checkActionPerformed(evt);
+            }
+        });
+
+        mini_project1.setText("8. White Paper");
+
+        white_paper.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                white_paperActionPerformed(evt);
+            }
+        });
+
+        submit.setText("Submit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,57 +125,120 @@ public class Internal_Assessments extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(quiz)
                                 .addGap(18, 18, 18)
-                                .addComponent(yes_1)
-                                .addGap(18, 18, 18)
-                                .addComponent(no))
+                                .addComponent(quiz1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(ia_types)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(class_test)
                                 .addGap(18, 18, 18)
-                                .addComponent(yes)
+                                .addComponent(class_test_checkbox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lab_test)
                                 .addGap(18, 18, 18)
-                                .addComponent(no1))))
+                                .addComponent(lab_test_check, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(case_study)
+                                .addGap(18, 18, 18)
+                                .addComponent(case_study_check, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(assignment)
+                                .addGap(18, 18, 18)
+                                .addComponent(assignment_check, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(presentation)
+                                .addGap(18, 18, 18)
+                                .addComponent(presentation_check, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mini_project)
+                                .addGap(18, 18, 18)
+                                .addComponent(mini_project_check, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mini_project1)
+                                .addGap(18, 18, 18)
+                                .addComponent(white_paper, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addComponent(assessment_variable)))
                 .addContainerGap(150, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(submit)
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(assessment_variable)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(assessment_variable)
+                        .addGap(18, 18, 18)
+                        .addComponent(ia_types)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(quiz)
+                            .addComponent(quiz1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(class_test)
+                            .addComponent(class_test_checkbox))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lab_test)
+                            .addComponent(lab_test_check))
+                        .addGap(18, 18, 18)
+                        .addComponent(case_study))
+                    .addComponent(case_study_check))
                 .addGap(18, 18, 18)
-                .addComponent(ia_types)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(assignment)
+                    .addComponent(assignment_check))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quiz)
-                    .addComponent(yes_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(no))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(presentation)
+                    .addComponent(presentation_check))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(class_test)
-                    .addComponent(yes)
-                    .addComponent(no1))
-                .addGap(111, 111, 111))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mini_project)
+                    .addComponent(mini_project_check))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mini_project1)
+                    .addComponent(white_paper))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(submit)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void yes_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yes_1ActionPerformed
+    private void lab_test_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lab_test_checkActionPerformed
         // TODO add your handling code here:
-        Quiz q = new Quiz();
-        q.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_yes_1ActionPerformed
+    }//GEN-LAST:event_lab_test_checkActionPerformed
 
-    private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
+    private void class_test_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_class_test_checkboxActionPerformed
         // TODO add your handling code here:
-        Class_Test c = new Class_Test();
-        c.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_yesActionPerformed
+    }//GEN-LAST:event_class_test_checkboxActionPerformed
+
+    private void case_study_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_case_study_checkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_case_study_checkActionPerformed
+
+    private void assignment_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment_checkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_assignment_checkActionPerformed
+
+    private void presentation_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presentation_checkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_presentation_checkActionPerformed
+
+    private void mini_project_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mini_project_checkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mini_project_checkActionPerformed
+
+    private void white_paperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_white_paperActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_white_paperActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,12 +277,23 @@ public class Internal_Assessments extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assessment_variable;
+    private javax.swing.JLabel assignment;
+    private javax.swing.JCheckBox assignment_check;
+    private javax.swing.JLabel case_study;
+    private javax.swing.JCheckBox case_study_check;
     private javax.swing.JLabel class_test;
+    private javax.swing.JCheckBox class_test_checkbox;
     private javax.swing.JLabel ia_types;
-    private javax.swing.JRadioButton no;
-    private javax.swing.JRadioButton no1;
+    private javax.swing.JLabel lab_test;
+    private javax.swing.JCheckBox lab_test_check;
+    private javax.swing.JLabel mini_project;
+    private javax.swing.JLabel mini_project1;
+    private javax.swing.JCheckBox mini_project_check;
+    private javax.swing.JLabel presentation;
+    private javax.swing.JCheckBox presentation_check;
     private javax.swing.JLabel quiz;
-    private javax.swing.JRadioButton yes;
-    private javax.swing.JRadioButton yes_1;
+    private javax.swing.JCheckBox quiz1;
+    private javax.swing.JButton submit;
+    private javax.swing.JCheckBox white_paper;
     // End of variables declaration//GEN-END:variables
 }

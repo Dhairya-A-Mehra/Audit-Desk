@@ -31,17 +31,43 @@
                           <Group type="102" attributes="0">
                               <Component id="quiz" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="yes_1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="no" min="-2" max="-2" attributes="0"/>
+                              <Component id="quiz1" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
                           <Component id="ia_types" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="class_test" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="yes" min="-2" max="-2" attributes="0"/>
+                              <Component id="class_test_checkbox" min="-2" pref="85" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lab_test" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="no1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lab_test_check" min="-2" pref="85" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="case_study" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="case_study_check" min="-2" pref="85" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="assignment" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="assignment_check" min="-2" pref="85" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="presentation" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="presentation_check" min="-2" pref="85" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="mini_project" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="mini_project_check" min="-2" pref="85" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="mini_project1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="white_paper" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -52,28 +78,65 @@
               </Group>
               <EmptySpace pref="150" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="submit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="assessment_variable" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="ia_types" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="quiz" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="yes_1" alignment="3" max="32767" attributes="0"/>
-                  <Component id="no" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="assessment_variable" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ia_types" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="quiz" min="-2" max="-2" attributes="0"/>
+                          <Component id="quiz1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="class_test" min="-2" max="-2" attributes="0"/>
+                          <Component id="class_test_checkbox" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lab_test" min="-2" max="-2" attributes="0"/>
+                          <Component id="lab_test_check" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="case_study" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="case_study_check" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="class_test" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="yes" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="no1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="assignment" min="-2" max="-2" attributes="0"/>
+                  <Component id="assignment_check" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="presentation" min="-2" max="-2" attributes="0"/>
+                  <Component id="presentation_check" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="mini_project" min="-2" max="-2" attributes="0"/>
+                  <Component id="mini_project_check" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="mini_project1" min="-2" max="-2" attributes="0"/>
+                  <Component id="white_paper" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="submit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -100,35 +163,81 @@
         <Property name="text" type="java.lang.String" value="1. Quiz"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="yes_1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Yes"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yes_1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="no">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="No"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="class_test">
       <Properties>
         <Property name="text" type="java.lang.String" value="2. Class Test"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="yes">
+    <Component class="javax.swing.JLabel" name="lab_test">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Yes"/>
+        <Property name="text" type="java.lang.String" value="3. Lab Test"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="case_study">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="4. Case Study"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="assignment">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="5. Assignment"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="quiz1">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="lab_test_check">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lab_test_checkActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="no1">
+    <Component class="javax.swing.JCheckBox" name="class_test_checkbox">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="class_test_checkboxActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="case_study_check">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="case_study_checkActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="assignment_check">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assignment_checkActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="presentation">
       <Properties>
-        <Property name="text" type="java.lang.String" value="No"/>
+        <Property name="text" type="java.lang.String" value="6. Presentation"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="presentation_check">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="presentation_checkActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mini_project">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="7. Mini Project"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="mini_project_check">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mini_project_checkActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mini_project1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="8. White Paper"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="white_paper">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="white_paperActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="submit">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
     </Component>
   </SubComponents>
