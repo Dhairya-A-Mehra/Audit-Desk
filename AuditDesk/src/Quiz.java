@@ -7,6 +7,7 @@
  *
  * @author mpdha
  */
+
 public class Quiz extends javax.swing.JFrame {
 
     /**
@@ -14,6 +15,7 @@ public class Quiz extends javax.swing.JFrame {
      */
     public Quiz() {
         initComponents();
+        
     }
 
     /**
@@ -25,34 +27,36 @@ public class Quiz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
+        dateComponentFormatter2 = new org.jdatepicker.impl.DateComponentFormatter();
+        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
+        jDayChooser1 = new com.toedter.calendar.JDayChooser();
+        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
+        jDatePickerUtil3 = new org.jdatepicker.util.JDatePickerUtil();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jCalendar2 = new com.toedter.calendar.JCalendar();
         quiz1 = new javax.swing.JLabel();
         date_of_planned_assessment = new javax.swing.JLabel();
-        date_assessment_p = new javax.swing.JTextField();
         date_of_conducted_assessment1 = new javax.swing.JLabel();
-        date_assessment_c1 = new javax.swing.JTextField();
         result_date = new javax.swing.JLabel();
-        result_declared = new javax.swing.JTextField();
         signature_student1 = new javax.swing.JLabel();
         yes1 = new javax.swing.JRadioButton();
         no2 = new javax.swing.JRadioButton();
         quiz_submit = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        quiz1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        quiz1.setText("1. Quiz");
+        quiz1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        quiz1.setText("Quiz");
 
         date_of_planned_assessment.setText("a. Date of Planned Assessment: ");
 
-        date_assessment_p.setText("YYYY/MM/DD");
-
         date_of_conducted_assessment1.setText("b. Date of Conducted Assessment: ");
 
-        date_assessment_c1.setText("YYYY/MM/DD");
-
         result_date.setText("c. Result Date: ");
-
-        result_declared.setText("YYYY/MM/DD");
 
         signature_student1.setText("d. Signature of Students on mark sheet  ");
 
@@ -71,60 +75,65 @@ public class Quiz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(date_of_conducted_assessment1)
-                        .addGap(18, 18, 18)
-                        .addComponent(date_assessment_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(date_of_planned_assessment)
-                        .addGap(18, 18, 18)
-                        .addComponent(date_assessment_p, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(quiz1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(signature_student1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(result_date)
-                                .addGap(18, 18, 18)
-                                .addComponent(result_declared, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(yes1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(no2)))
-                .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(quiz_submit)
-                .addGap(29, 29, 29))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(date_of_planned_assessment)
+                            .addComponent(date_of_conducted_assessment1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(signature_student1)
+                        .addGap(272, 272, 272)
+                        .addComponent(yes1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(no2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(result_date)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(quiz_submit)
+                                .addGap(22, 22, 22))
+                            .addComponent(jDateChooser3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(quiz1)
+                .addGap(288, 288, 288))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(29, 29, 29)
                 .addComponent(quiz1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date_of_planned_assessment)
-                    .addComponent(date_assessment_p, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date_of_conducted_assessment1)
-                    .addComponent(date_assessment_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(result_date)
-                    .addComponent(result_declared, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(date_of_planned_assessment)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addComponent(date_of_conducted_assessment1))
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(result_date))
+                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(no2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(yes1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(signature_student1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(yes1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(signature_student1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(35, 35, 35)
                 .addComponent(quiz_submit)
-                .addGap(30, 30, 30))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,8 +141,7 @@ public class Quiz extends javax.swing.JFrame {
 
     private void quiz_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quiz_submitActionPerformed
         // TODO add your handling code here:
-        Internal_Assessments i = new Internal_Assessments();
-        i.setVisible(true);
+        
         this.setVisible(false);
     }//GEN-LAST:event_quiz_submitActionPerformed
 
@@ -163,7 +171,8 @@ public class Quiz extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -173,15 +182,23 @@ public class Quiz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField date_assessment_c1;
-    private javax.swing.JTextField date_assessment_p;
+    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
+    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter2;
     private javax.swing.JLabel date_of_conducted_assessment1;
     private javax.swing.JLabel date_of_planned_assessment;
+    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JCalendar jCalendar2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil3;
+    private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JRadioButton no2;
     private javax.swing.JLabel quiz1;
     private javax.swing.JButton quiz_submit;
     private javax.swing.JLabel result_date;
-    private javax.swing.JTextField result_declared;
     private javax.swing.JLabel signature_student1;
     private javax.swing.JRadioButton yes1;
     // End of variables declaration//GEN-END:variables
