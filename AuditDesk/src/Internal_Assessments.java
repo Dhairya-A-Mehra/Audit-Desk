@@ -7,15 +7,17 @@
  *
  * @author mpdha
  */
+import javax.swing.JOptionPane;
 public class Internal_Assessments extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Internal_Assessments
      */
     public Internal_Assessments() {
         initComponents();
+              
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +40,9 @@ public class Internal_Assessments extends javax.swing.JFrame {
         presentationjCheckBox = new javax.swing.JCheckBox();
         miniProjectjCheckBox = new javax.swing.JCheckBox();
         whitePaperjCheckBox = new javax.swing.JCheckBox();
-        SubmitButton = new javax.swing.JButton();
+        SaveButton = new javax.swing.JButton();
+        Addbutton = new javax.swing.JButton();
+        PreviousButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -82,6 +86,11 @@ public class Internal_Assessments extends javax.swing.JFrame {
         ia_types.setText("Select assessment type:");
 
         quizCheckBox.setText("Quiz");
+        quizCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quizCheckBoxActionPerformed(evt);
+            }
+        });
 
         classTestjCheckBox.setText("Class Test");
 
@@ -103,10 +112,24 @@ public class Internal_Assessments extends javax.swing.JFrame {
             }
         });
 
-        SubmitButton.setText("Submit");
-        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
+        SaveButton.setText("Save");
+        SaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitButtonActionPerformed(evt);
+                SaveButtonActionPerformed(evt);
+            }
+        });
+
+        Addbutton.setText("Add");
+        Addbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddbuttonActionPerformed(evt);
+            }
+        });
+
+        PreviousButton.setText("Previous");
+        PreviousButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PreviousButtonActionPerformed(evt);
             }
         });
 
@@ -115,31 +138,33 @@ public class Internal_Assessments extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ia_types)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ia_types)
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(assessment_variable)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(assessment_variable)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(quizCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(classTestjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labTestjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(caseStudyjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(83, 83, 83)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(miniProjectjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(presentationjCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(assignmentCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(whitePaperjCheckBox)))))))
+                                    .addComponent(quizCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(classTestjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labTestjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(caseStudyjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(83, 83, 83)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(miniProjectjCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(presentationjCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(assignmentCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(whitePaperjCheckBox)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(SubmitButton)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addComponent(PreviousButton)
+                        .addGap(52, 52, 52)
+                        .addComponent(Addbutton)
+                        .addGap(60, 60, 60)
+                        .addComponent(SaveButton)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,61 +189,96 @@ public class Internal_Assessments extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caseStudyjCheckBox)
                     .addComponent(whitePaperjCheckBox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(SubmitButton)
-                .addGap(146, 146, 146))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SaveButton)
+                    .addComponent(Addbutton)
+                    .addComponent(PreviousButton))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+     
 
-    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
-            if(quizCheckBox.isSelected()){
-                Quiz q = new Quiz();
-                q.setVisible(true);
-                this.setVisible(false);
-            }
-            if(assignmentCheckBox.isSelected()){
-                Assignment a = new Assignment();
-                a.setVisible(true);
-                this.setVisible(false);
-            }
-            if(classTestjCheckBox.isSelected()){
-                Class_Test ct = new Class_Test();
-                ct.setVisible(true);
-                this.setVisible(false);
-            }
-            if(caseStudyjCheckBox.isSelected()){
-                Case_Study cs = new Case_Study();
-                cs.setVisible(true);
-                this.setVisible(false);
-            }
-            if(labTestjCheckBox.isSelected()){
-                Lab_Test lt = new Lab_Test();
-                lt.setVisible(true);
-                this.setVisible(false);
-            }
-            if(miniProjectjCheckBox.isSelected()){
-                Mini_project mp = new Mini_project();
-                mp.setVisible(true);
-                this.setVisible(false);
-            }
-            if(presentationjCheckBox.isSelected()){
-                Presentation p = new Presentation();
-                p.setVisible(true);
-                this.setVisible(false);
-            }
-            if(whitePaperjCheckBox.isSelected()){
-                White_paper wp = new White_paper();
-                wp.setVisible(true);
-                this.setVisible(false);
-            }
-    }//GEN-LAST:event_SubmitButtonActionPerformed
+    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
+        Activity a = new Activity();
+        a.setVisible(true);
+        this.setVisible(false);
+            
+    }//GEN-LAST:event_SaveButtonActionPerformed
 
     private void whitePaperjCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whitePaperjCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_whitePaperjCheckBoxActionPerformed
 
+    private void quizCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quizCheckBoxActionPerformed
+
+    private void AddbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddbuttonActionPerformed
+            
+         if(quizCheckBox.isSelected())
+         {
+               Quiz q = new Quiz();
+               q.setVisible(true);
+               this.setVisible(false);
+         }
+         else if(assignmentCheckBox.isSelected())
+         {
+             Assignment a=new Assignment();
+             a.setVisible(true);
+             this.setVisible(false);
+         }
+          else if(caseStudyjCheckBox.isSelected())
+         {
+             Case_Study a=new Case_Study();
+             a.setVisible(true);
+             this.setVisible(false);
+         }
+          else if(classTestjCheckBox.isSelected())
+         {
+             Class_Test a=new Class_Test();
+             a.setVisible(true);
+             this.setVisible(false);
+         }
+          else if(labTestjCheckBox.isSelected())
+         {
+             Lab_Test a=new Lab_Test();
+             a.setVisible(true);
+             this.setVisible(false);
+         }
+          else if(miniProjectjCheckBox.isSelected())
+         {
+             Mini_project a=new Mini_project();
+             a.setVisible(true);
+             this.setVisible(false);
+         }
+          else if(presentationjCheckBox.isSelected())
+         {
+             Presentation a=new Presentation();
+             a.setVisible(true);
+             this.setVisible(false);
+         }
+          else if(whitePaperjCheckBox.isSelected())
+         {
+             White_paper a=new White_paper();
+             a.setVisible(true);
+             this.setVisible(false);
+         }
+          else{
+                  JOptionPane.showMessageDialog(null, "Please select an internal assessment.");
+
+          }
+    }//GEN-LAST:event_AddbuttonActionPerformed
+
+    private void PreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreviousButtonActionPerformed
+        Course c= new Course();
+        c.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_PreviousButtonActionPerformed
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -255,7 +315,9 @@ public class Internal_Assessments extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SubmitButton;
+    private javax.swing.JButton Addbutton;
+    private javax.swing.JButton PreviousButton;
+    private javax.swing.JButton SaveButton;
     private javax.swing.JLabel assessment_variable;
     private javax.swing.JCheckBox assignmentCheckBox;
     private javax.swing.JCheckBox caseStudyjCheckBox;

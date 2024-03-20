@@ -49,7 +49,7 @@ public class Quiz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        quiz1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        quiz1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         quiz1.setText("Quiz");
 
         date_of_planned_assessment.setText("a. Date of Planned Assessment: ");
@@ -133,7 +133,7 @@ public class Quiz extends javax.swing.JFrame {
                         .addComponent(signature_student1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(35, 35, 35)
                 .addComponent(quiz_submit)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,7 +141,8 @@ public class Quiz extends javax.swing.JFrame {
 
     private void quiz_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quiz_submitActionPerformed
         // TODO add your handling code here:
-        
+        Internal_Assessments ia = new Internal_Assessments();
+        ia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_quiz_submitActionPerformed
 
