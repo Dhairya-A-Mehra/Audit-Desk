@@ -48,7 +48,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
-                      <Component id="RefreshButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="ResetButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="SignIn" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -84,7 +84,7 @@
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RefreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ResetButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="SignIn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="174" max="32767" attributes="0"/>
@@ -144,12 +144,12 @@
         <Property name="text" type="java.lang.String" value="jPasswordField2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="RefreshButton">
+    <Component class="javax.swing.JButton" name="ResetButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Refresh"/>
+        <Property name="text" type="java.lang.String" value="Reset"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RefreshButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="SignIn">

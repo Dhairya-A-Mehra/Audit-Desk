@@ -34,7 +34,7 @@ public class SignUp extends javax.swing.JFrame {
         emailTextField = new javax.swing.JTextField();
         newpassTextField = new javax.swing.JPasswordField();
         RepassTextField = new javax.swing.JPasswordField();
-        RefreshButton = new javax.swing.JButton();
+        ResetButton = new javax.swing.JButton();
         SignIn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,10 +63,10 @@ public class SignUp extends javax.swing.JFrame {
 
         RepassTextField.setText("jPasswordField2");
 
-        RefreshButton.setText("Refresh");
-        RefreshButton.addActionListener(new java.awt.event.ActionListener() {
+        ResetButton.setText("Reset");
+        ResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RefreshButtonActionPerformed(evt);
+                ResetButtonActionPerformed(evt);
             }
         });
 
@@ -102,7 +102,7 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(nameTextField)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(251, 251, 251)
-                        .addComponent(RefreshButton)
+                        .addComponent(ResetButton)
                         .addGap(78, 78, 78)
                         .addComponent(SignIn)))
                 .addContainerGap(193, Short.MAX_VALUE))
@@ -130,7 +130,7 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(RepassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RefreshButton)
+                    .addComponent(ResetButton)
                     .addComponent(SignIn))
                 .addContainerGap(174, Short.MAX_VALUE))
         );
@@ -138,12 +138,12 @@ public class SignUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButtonActionPerformed
+    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
           nameTextField.setText("");
           emailTextField.setText("");
           newpassTextField.setText("");
           RepassTextField.setText("");
-    }//GEN-LAST:event_RefreshButtonActionPerformed
+    }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
         // TODO add your handling code here:
@@ -191,8 +191,8 @@ public class SignUp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton RefreshButton;
     private javax.swing.JPasswordField RepassTextField;
+    private javax.swing.JButton ResetButton;
     private javax.swing.JButton SignIn;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel jLabel1;
