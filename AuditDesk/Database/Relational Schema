@@ -8,15 +8,15 @@ Relational Schema:
 
 4. Program(Program-Id (PK), Name, Nature)
 
-5. Course(Course-ID (PK), Program-Id (FK), Nature, Total_Credits,Teaching_SchemeID, Department)
+5. Course(Course-ID (PK), Program-Id (FK), Nature, Total_Credits, Teaching_SchemeID)
 
 6. Include(Include-Id (PK), Dept-Id (FK), Course-Id (FK))
 
 7. Teaching_Scheme(Course-Id (FK), Lab/Tutorial, Lecture)
 
-8. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned,Date-Conducted,Date-Result,Types,Signature-Students)
+8. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned, Date-Conducted, Date-Result, Types, Signature-Students)
 
-9. Internal_Assessment_Types(Assessment-ID (FK), Quiz,Lab_Test,Presentation,White_Paper,Assignment,
-Case_Study,Mini_Project,Class_Test,OTHERS)
+9. Internal_Assessment_Types(Assessment-ID (FK), Quiz, Lab_Test, Presentation, White_Paper, Assignment,
+Case_Study, Mini_Project, Class_Test, OTHERS)
 
 10. Department(Dept-Id (PK), Dept_Name)
