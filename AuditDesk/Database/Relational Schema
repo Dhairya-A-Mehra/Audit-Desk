@@ -2,7 +2,7 @@ Relational Schema:
 
 1. Login(Email-Id (PK), Faculty-Id (FK), Password)
 
-2. Faculty(Faculty-Id (PK), Program_Id (FK), Email, Name, Faculty_Time)
+2. Faculty(Faculty-Id (PK), Program_Id (FK), Email, Name, Faculty_Type)
 
 3. Program(Program-Id (PK), Name, Nature)
 
