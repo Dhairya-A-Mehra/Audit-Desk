@@ -6,7 +6,7 @@ Relational Schema:
 
 3. Program(Program-Id (PK), Name, Nature)
 
-4. Course(Course-ID (PK), Program-Id (FK), Nature, Total_Credits, Teaching_SchemeID)
+4. Course(Course-ID (PK), Program-Id (FK), Nature, Total_Credits, Course_Title)
 
 5. Include(Include-Id (PK), Dept-Id (FK), Course-Id (FK))
 
