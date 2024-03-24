@@ -2,21 +2,19 @@ Relational Schema:
 
 1. Login(Email-Id (PK), Faculty-Id (FK), Password)
 
-2. Faculty(Faculty-Id (PK), Program_Id (FK), Email, Name)
+2. Faculty(Faculty-Id (PK), Program_Id (FK), Email, Name, Faculty_Time)
 
-3. FacultyType(Faculty_ID (FK), Adjunct, FullTime, PartTime)
+3. Program(Program-Id (PK), Name, Nature)
 
-4. Program(Program-Id (PK), Name, Nature)
+4. Course(Course-ID (PK), Program-Id (FK), Nature, Total_Credits, Teaching_SchemeID)
 
-5. Course(Course-ID (PK), Program-Id (FK), Nature, Total_Credits, Teaching_SchemeID)
+5. Include(Include-Id (PK), Dept-Id (FK), Course-Id (FK))
 
-6. Include(Include-Id (PK), Dept-Id (FK), Course-Id (FK))
+6. Teaching_Scheme(Course-Id (FK), Lab/Tutorial, Lecture)
 
-7. Teaching_Scheme(Course-Id (FK), Lab/Tutorial, Lecture)
+7. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned, Date-Conducted, Date-Result, Types, Signature-Students)
 
-8. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned, Date-Conducted, Date-Result, Types, Signature-Students)
-
-9. Internal_Assessment_Types(Assessment-ID (FK), Quiz, Lab_Test, Presentation, White_Paper, Assignment,
+8. Internal_Assessment_Types(Assessment-ID (FK), Quiz, Lab_Test, Presentation, White_Paper, Assignment,
 Case_Study, Mini_Project, Class_Test, OTHERS)
 
-10. Department(Dept-Id (PK), Dept_Name)
+9. Department(Dept-Id (PK), Dept_Name)
