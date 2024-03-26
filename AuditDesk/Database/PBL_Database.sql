@@ -27,9 +27,19 @@ Dept_ID int primary key,
 Dept_Name varchar(50)
 );
 
+create table Course (
+Course_ID int primary key,
+Program_ID int,
+foreign key(Program_ID) references Program(Program_ID),
+Course_Nature varchar(20),
+Credits int,
+Course_Title varchar(25)
+);
+
 create table Include (
 Include_id int primary key,
 Dept_ID int,
 foreign key(Dept_ID) references Department (Dept_ID),
--- course id pending as course table is pending
+Course_ID int,
+foreign key(Course_ID) references Course(Course_ID)
 );
