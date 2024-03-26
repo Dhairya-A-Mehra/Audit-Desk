@@ -12,9 +12,6 @@ Relational Schema:
 
 6. Teaching_Scheme(Course-Id (FK), Lab/Tutorial, Lecture)
 
-7. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned, Date-Conducted, Date-Result, Types, Signature-Students)
+7. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned, Date-Conducted, Date-Result, Types, Signature-Students, Internal_Assessment_Types)
 
-8. Internal_Assessment_Types(Assessment-ID (FK), Quiz, Lab_Test, Presentation, White_Paper, Assignment,
-Case_Study, Mini_Project, Class_Test, OTHERS)
-
-9. Department(Dept-Id (PK), Dept_Name)
+8. Department(Dept-Id (PK), Dept_Name)
