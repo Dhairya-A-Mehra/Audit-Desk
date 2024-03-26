@@ -12,13 +12,14 @@ create table Faculty (
 Faculty_ID int primary key,
 Facutly_name varchar(50),
 Faculty_Email varchar(50),
+Program_ID int,  
 foreign key (Program_ID) references Program(Program_ID)
 );
 
 create table Login (
 Email_id varchar(50) primary key,
 Faculty_ID int,
-foreign key (Facluty_ID) references Faculty (Faculty_ID),
+foreign key (Faculty_ID) references Faculty (Faculty_ID),
 Password varchar(15)
 );
 
