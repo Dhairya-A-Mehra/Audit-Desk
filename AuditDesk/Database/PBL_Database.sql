@@ -43,3 +43,10 @@ foreign key(Dept_ID) references Department (Dept_ID),
 Course_ID int,
 foreign key(Course_ID) references Course(Course_ID)
 );
+
+create table Teaching_Scheme(
+Course_ID int,
+foreign key(Course_ID) references Course(Course_ID),
+Lab_or_Tutorial int,
+Lecture int
+);
