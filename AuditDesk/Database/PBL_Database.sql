@@ -50,3 +50,14 @@ foreign key(Course_ID) references Course(Course_ID),
 Lab_or_Tutorial int,
 Lecture int
 );
+
+create table Internal_Assessment (
+Assessment_ID int primary key,
+Course_ID int,
+foreign key(Course_ID) references Course(Course_ID),
+Planned_Date DATE,
+Conducted_Date DATE,
+Result_Date DATE,
+Types varchar(30),
+Student_Signature BOOLEAN
+);
