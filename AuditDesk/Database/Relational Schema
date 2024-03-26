@@ -12,6 +12,6 @@ Relational Schema:
 
 6. Teaching_Scheme(Course-Id (FK), Lab/Tutorial, Lecture)
 
-7. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned, Date-Conducted, Date-Result, Types, Signature-Students, Internal_Assessment_Types)
+7. Internal_Assessment(Assessment_id (PK), Course-Id (FK), Date-Planned, Date-Conducted, Date-Result, Signature-Students, Types)
 
 8. Department(Dept-Id (PK), Dept_Name)
