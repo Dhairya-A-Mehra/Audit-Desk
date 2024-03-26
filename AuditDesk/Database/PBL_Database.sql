@@ -26,3 +26,10 @@ create table Department (
 Dept_ID int primary key,
 Dept_Name varchar(50)
 );
+
+create table Include (
+Include_id int primary key,
+Dept_ID int,
+foreign key(Dept_ID) references Department (Dept_ID),
+-- course id pending as course table is pending
+);
