@@ -15,9 +15,14 @@ Faculty_Email varchar(50),
 foreign key (Program_ID) references Program(Program_ID)
 );
 
-create table Login (]
+create table Login (
 Email_id varchar(50) primary key,
 Faculty_ID int,
 foreign key (Facluty_ID) references Faculty (Faculty_ID),
 Password varchar(15)
+);
+
+create table Department (
+Dept_ID int primary key,
+Dept_Name varchar(50)
 );
