@@ -9,7 +9,7 @@ Program_nature varchar(50)
 );
 
 create table Faculty (
-Faculty_ID int primary key,
+Faculty_ID int primary key auto-increment,
 Facutly_name varchar(50),
 Faculty_Email varchar(50),
 Program_ID int,  
