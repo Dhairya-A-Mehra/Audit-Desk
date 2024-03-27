@@ -7,6 +7,13 @@
  *
  * @author HP
  */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 public class SignUp extends javax.swing.JFrame {
 
     /**
@@ -32,10 +39,10 @@ public class SignUp extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
-        newpassTextField = new javax.swing.JPasswordField();
-        RepassTextField = new javax.swing.JPasswordField();
+        newpassField = new javax.swing.JPasswordField();
+        reenteredpassField = new javax.swing.JPasswordField();
         ResetButton = new javax.swing.JButton();
-        SignIn = new javax.swing.JButton();
+        SignUpButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,18 +57,14 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel5.setText("Re-enter password");
 
-        nameTextField.setText("jTextField1");
+        nameTextField.setText("John");
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextFieldActionPerformed(evt);
             }
         });
 
-        emailTextField.setText("jTextField2");
-
-        newpassTextField.setText("jPasswordField1");
-
-        RepassTextField.setText("jPasswordField2");
+        emailTextField.setText("Doe");
 
         ResetButton.setText("Reset");
         ResetButton.addActionListener(new java.awt.event.ActionListener() {
@@ -70,10 +73,10 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        SignIn.setText("Sign In");
-        SignIn.addActionListener(new java.awt.event.ActionListener() {
+        SignUpButton.setText("Sign Up");
+        SignUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignInActionPerformed(evt);
+                SignUpButtonActionPerformed(evt);
             }
         });
 
@@ -86,26 +89,25 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(290, 290, 290))
             .addGroup(layout.createSequentialGroup()
+                .addGap(251, 251, 251)
+                .addComponent(ResetButton)
+                .addGap(78, 78, 78)
+                .addComponent(SignUpButton)
+                .addGap(174, 174, 174))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(219, 219, 219)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(124, 124, 124)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(newpassTextField)
-                            .addComponent(RepassTextField)
-                            .addComponent(emailTextField)
-                            .addComponent(nameTextField)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(ResetButton)
-                        .addGap(78, 78, 78)
-                        .addComponent(SignIn)))
-                .addContainerGap(193, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(newpassField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameTextField)
+                    .addComponent(reenteredpassField))
+                .addGap(174, 174, 174))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,23 +118,23 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(newpassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newpassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(RepassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reenteredpassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ResetButton)
-                    .addComponent(SignIn))
-                .addContainerGap(174, Short.MAX_VALUE))
+                    .addComponent(SignUpButton))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,19 +143,57 @@ public class SignUp extends javax.swing.JFrame {
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
           nameTextField.setText("");
           emailTextField.setText("");
-          newpassTextField.setText("");
-          RepassTextField.setText("");
+          newpassField.setText("");
+          reenteredpassField.setText("");
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTextFieldActionPerformed
 
-    private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
-        Login l=new Login();
-        l.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_SignInActionPerformed
+    private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
+       try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
+            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+            System.out.println("Connection successfully established");
+            
+            String name = nameTextField.getText();
+            String userpass1 = String.valueOf(newpassField.getPassword());
+            String userpass2 = String.valueOf(reenteredpassField.getPassword());
+            String email = emailTextField.getText();
+            if(userpass1.equals(userpass2))
+            {
+            //String query = "SELECT username FROM login WHERE username = ? AND email = ?";
+            String query ="insert into faculty (faculty_name,faculty_Email,Password) values(?,?,?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, email);
+            pstmt.setString(3, userpass1);
+            pstmt.executeUpdate();
+            
+            
+            JOptionPane.showMessageDialog(rootPane, "Account created successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            new Login().setVisible(true);
+            this.dispose();
+        }              
+         catch (Exception e) {
+            e.printStackTrace();
+        }
+       }
+       } 
+       catch (ClassNotFoundException e) {
+    e.printStackTrace();
+    System.err.println("MySQL JDBC driver not found");
+}
+       catch(SQLException e){
+           e.printStackTrace();
+        }
+      
+
+            
+      
+    }//GEN-LAST:event_SignUpButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,9 +231,8 @@ public class SignUp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField RepassTextField;
     private javax.swing.JButton ResetButton;
-    private javax.swing.JButton SignIn;
+    private javax.swing.JButton SignUpButton;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -201,6 +240,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField nameTextField;
-    private javax.swing.JPasswordField newpassTextField;
+    private javax.swing.JPasswordField newpassField;
+    private javax.swing.JPasswordField reenteredpassField;
     // End of variables declaration//GEN-END:variables
 }
