@@ -13,14 +13,8 @@ Faculty_ID int primary key auto-increment,
 Facutly_name varchar(50),
 Faculty_Email varchar(50),
 Program_ID int,  
+Password varchar(20),
 foreign key (Program_ID) references Program(Program_ID)
-);
-
-create table Login (
-Email_id varchar(50) primary key,
-Faculty_ID int,
-foreign key (Faculty_ID) references Faculty (Faculty_ID),
-Password varchar(15)
 );
 
 create table Department (
