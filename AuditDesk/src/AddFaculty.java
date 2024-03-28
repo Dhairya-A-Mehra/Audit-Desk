@@ -14,6 +14,19 @@ public class AddFaculty extends javax.swing.JFrame {
      */
     public AddFaculty() {
         initComponents();
+
+        // Set light yellowish background for the frame and content pane
+        getContentPane().setBackground(new java.awt.Color(250, 240, 230)); // Light yellowish
+
+        // Set black foreground color for all labels
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        // ... set foreground color to black for any other labels
+
+        // Set green background for all buttons
+        submitButton.setBackground(new java.awt.Color(50, 205, 50)); // Green color
     }
 
     /**

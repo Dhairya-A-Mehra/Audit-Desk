@@ -14,7 +14,20 @@ public class Activity extends javax.swing.JFrame {
      */
     public Activity() {
         initComponents();
-    }
+    
+        // Set light yellow background for the frame and content pane
+        getContentPane().setBackground(new java.awt.Color(250, 240, 230));
+    
+        // Set black foreground color for all labels
+        Activitylabel.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        // ... set foreground color to black for all other labels (jLabel3, ..., jLabel7)
+    
+        // Set green background for the button
+        SubmitButton.setBackground(new java.awt.Color(50, 205, 50)); // Green color
+    
+      }
 
     /**
      * This method is called from within the constructor to initialize the form.

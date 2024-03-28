@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -23,6 +24,12 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        getContentPane().setBackground(new Color(243, 229, 143));  // Light yellow background
+        //buttons
+        SignUp.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        SignUp.setForeground(new java.awt.Color(0, 0, 0));
+        SignIn.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        SignIn.setForeground(new java.awt.Color(0, 0, 0));
     }
 
     /**

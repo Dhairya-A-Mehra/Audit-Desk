@@ -7,6 +7,7 @@
  *
  * @author HP
  */
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +22,14 @@ public class SignUp extends javax.swing.JFrame {
      */
     public SignUp() {
         initComponents();
+        getContentPane().setBackground(new Color(243, 229, 143));  // Light yellow background
+        //buttons
+        ResetButton.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        ResetButton.setForeground(new java.awt.Color(0, 0, 0));
+        SignUpButton.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        SignUpButton.setForeground(new java.awt.Color(0, 0, 0));
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

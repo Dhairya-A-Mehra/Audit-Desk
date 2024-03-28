@@ -14,7 +14,37 @@ public class Course extends javax.swing.JFrame {
      */
     public Course() {
         initComponents();
-    }
+    
+        // Set light yellowish background for the frame and content pane
+        getContentPane().setBackground(new java.awt.Color(243, 229, 143)); // Light yellowish
+    
+        // Set black foreground color for all labels
+        CourseTitle.setForeground(new java.awt.Color(0, 0, 0));
+        courseName.setForeground(new java.awt.Color(0, 0, 0));
+        credits.setForeground(new java.awt.Color(0, 0, 0));
+        noOfHoursAlloted.setForeground(new java.awt.Color(0, 0, 0));
+        noOfhoursConducted.setForeground(new java.awt.Color(0, 0, 0));
+        // ... set foreground color to black for any other labels
+    
+        // Set gray background and black foreground for combo box
+        courseNameComboBox.setBackground(new java.awt.Color(150, 150, 150));
+        courseNameComboBox.setForeground(new java.awt.Color(0, 0, 0));
+    
+        // Set text fields to light yellow background and black foreground
+        creditsTextField.setBackground(new java.awt.Color(250, 240, 230));
+        creditsTextField.setForeground(new java.awt.Color(0, 0, 0));
+        noOfHoursAllTextField.setBackground(new java.awt.Color(250, 240, 230));
+        noOfHoursAllTextField.setForeground(new java.awt.Color(0, 0, 0));
+        noOfHoursConTextField.setBackground(new java.awt.Color(250, 240, 230));
+        noOfHoursConTextField.setForeground(new java.awt.Color(0, 0, 0));
+        // ... set background and foreground color for any other text fields
+    
+        // Set light greenish background and black foreground for buttons
+        nextButton.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        nextButton.setForeground(new java.awt.Color(0, 0, 0));
+        prevButton.setBackground(new java.awt.Color(152, 255, 152));
+        prevButton.setForeground(new java.awt.Color(0, 0, 0));
+      }
 
     /**
      * This method is called from within the constructor to initialize the form.
