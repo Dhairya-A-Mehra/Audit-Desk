@@ -183,8 +183,7 @@ public class Quiz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
-    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter2;
+    
     private javax.swing.JLabel date_of_conducted_assessment1;
     private javax.swing.JLabel date_of_planned_assessment;
     private com.toedter.calendar.JCalendar jCalendar1;
@@ -192,9 +191,7 @@ public class Quiz extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil3;
+    
     private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JRadioButton no2;
     private javax.swing.JLabel quiz1;
