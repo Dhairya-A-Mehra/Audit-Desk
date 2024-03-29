@@ -3,7 +3,7 @@ create database PBL1;
 use pbl1;
 
 create table Program (
-Program_ID int primary key,
+Program_ID varchar(10) primary key,
 Program_name varchar(50),
 Program_nature varchar(50)
 );
@@ -12,7 +12,7 @@ create table Faculty (
 Faculty_ID int primary key auto_increment,
 Faculty_name varchar(50),
 Faculty_Email varchar(50),
-Program_ID int,  
+Program_ID varchar(10),  
 Password varchar(20),
 foreign key (Program_ID) references Program(Program_ID)
 );
@@ -24,7 +24,7 @@ Dept_Name varchar(50)
 
 create table Course (
 Course_ID int primary key,
-Program_ID int,
+Program_ID varchar(10),
 foreign key(Program_ID) references Program(Program_ID),
 Course_Nature varchar(20),
 Credits int,
