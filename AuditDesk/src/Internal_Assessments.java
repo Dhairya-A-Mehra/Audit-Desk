@@ -7,6 +7,8 @@
  *
  * @author mpdha
  */
+import java.awt.Color;
+
 import javax.swing.JOptionPane;
 public class Internal_Assessments extends javax.swing.JFrame {
     
@@ -15,7 +17,16 @@ public class Internal_Assessments extends javax.swing.JFrame {
      */
     public Internal_Assessments() {
         initComponents();
-              
+        getContentPane().setBackground(new Color(243, 229, 143)); // Light yellow
+        
+        //green for buttons
+        SaveButton.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        SaveButton.setForeground(new java.awt.Color(0, 0, 0));
+        Addbutton.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        Addbutton.setForeground(new java.awt.Color(0, 0, 0));
+        PreviousButton.setBackground(new java.awt.Color(152, 255, 152)); // Light green
+        PreviousButton.setForeground(new java.awt.Color(0, 0, 0));
+
     }
     
     /**

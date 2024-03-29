@@ -14,6 +14,19 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+
+        // Set light yellowish background for the frame and content pane
+        getContentPane().setBackground(new java.awt.Color(250, 240, 230)); // Light yellowish
+
+        // Set black foreground color for all labels
+        for (java.awt.Component component : getContentPane().getComponents()) {
+            if (component instanceof javax.swing.JLabel) {
+                component.setForeground(new java.awt.Color(0, 0, 0)); // Black color
+            }
+        }
+
+        // Set green background for the button
+        jButton1.setBackground(new java.awt.Color(50, 205, 50)); // Green color
     }
 
     /**

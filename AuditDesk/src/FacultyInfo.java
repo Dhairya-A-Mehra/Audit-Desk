@@ -14,7 +14,25 @@ public class FacultyInfo extends javax.swing.JFrame {
      */
     public FacultyInfo() {
         initComponents();
+
+        // Set light yellowish background for the frame and content pane
+        getContentPane().setBackground(new java.awt.Color(250, 240, 230)); // Light yellowish
+
+        // Set black foreground color for all labels
+        for (java.awt.Component component : getContentPane().getComponents()) {
+            if (component instanceof javax.swing.JLabel) {
+                component.setForeground(new java.awt.Color(0, 0, 0)); // Black color
+            }
+        }
+
+        // Set green background for all buttons
+        for (java.awt.Component component : getContentPane().getComponents()) {
+            if (component instanceof javax.swing.JButton) {
+                component.setBackground(new java.awt.Color(50, 205, 50)); // Green color
+            }
+        }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
