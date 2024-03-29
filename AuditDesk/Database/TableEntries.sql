@@ -6,8 +6,8 @@ values
 insert into department
 values 
 	(121, "CE"),
-    (122, "CSE"),
-    (123, "ENTC"),
-    (125, "ME"),
-    (126, "AIML"),
-    (127, "RNA");
+    	(122, "CSE"),
+    	(123, "ENTC"),
+    	(125, "ME"),
+    	(126, "AIML"),
+    	(127, "RNA");
