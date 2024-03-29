@@ -27,12 +27,7 @@ public class Quiz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
-        dateComponentFormatter2 = new org.jdatepicker.impl.DateComponentFormatter();
-        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
-        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
-        jDatePickerUtil3 = new org.jdatepicker.util.JDatePickerUtil();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jCalendar2 = new com.toedter.calendar.JCalendar();
         quiz1 = new javax.swing.JLabel();
@@ -183,7 +178,6 @@ public class Quiz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    
     private javax.swing.JLabel date_of_conducted_assessment1;
     private javax.swing.JLabel date_of_planned_assessment;
     private com.toedter.calendar.JCalendar jCalendar1;
@@ -191,7 +185,6 @@ public class Quiz extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
-    
     private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JRadioButton no2;
     private javax.swing.JLabel quiz1;

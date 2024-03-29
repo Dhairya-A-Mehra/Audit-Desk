@@ -2,17 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="org.jdatepicker.impl.DateComponentFormatter" name="dateComponentFormatter1">
-    </Component>
-    <Component class="org.jdatepicker.impl.DateComponentFormatter" name="dateComponentFormatter2">
-    </Component>
-    <Component class="org.jdatepicker.util.JDatePickerUtil" name="jDatePickerUtil1">
-    </Component>
     <Component class="com.toedter.calendar.JDayChooser" name="jDayChooser1">
-    </Component>
-    <Component class="org.jdatepicker.util.JDatePickerUtil" name="jDatePickerUtil2">
-    </Component>
-    <Component class="org.jdatepicker.util.JDatePickerUtil" name="jDatePickerUtil3">
     </Component>
     <Component class="com.toedter.calendar.JCalendar" name="jCalendar1">
     </Component>
