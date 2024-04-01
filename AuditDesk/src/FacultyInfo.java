@@ -1,3 +1,11 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -69,6 +77,7 @@ public class FacultyInfo extends javax.swing.JFrame {
         departmentname = new javax.swing.JLabel();
         departmentComboBox = new javax.swing.JComboBox<>();
         addFacultyButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,7 +140,7 @@ public class FacultyInfo extends javax.swing.JFrame {
 
         departmentname.setText("Name of Department");
 
-        departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CSE", "AIML", "RNA", "ENTC", "CIVIL", "MECH" }));
 
         addFacultyButton.setText("Add Faculty");
         addFacultyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -140,49 +149,63 @@ public class FacultyInfo extends javax.swing.JFrame {
             }
         });
 
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(facultyTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(programName)
-                            .addComponent(semester))
-                        .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(facultyTypeCombo1, javax.swing.GroupLayout.Alignment.LEADING, 0, 159, Short.MAX_VALUE)
-                            .addComponent(instituteNameTextfield, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(programNameComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(semComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(facultyTextField2))
-                            .addComponent(facultyTypeCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(facultyTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(programNature)
-                                    .addComponent(batchYr))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(departmentname)
-                        .addGap(57, 57, 57)))
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(programName)
+                                    .addComponent(semester))
+                                .addGap(109, 109, 109)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(facultyTypeCombo1, javax.swing.GroupLayout.Alignment.LEADING, 0, 159, Short.MAX_VALUE)
+                                    .addComponent(instituteNameTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(programNameComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(semComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(facultyTextField2))
+                                    .addComponent(facultyTypeCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(46, 46, 46)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(programNature)
+                                            .addComponent(batchYr))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(departmentname)
+                                .addGap(57, 57, 57))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton)
+                        .addGap(158, 158, 158)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(batchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,8 +219,8 @@ public class FacultyInfo extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(facultyTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-                            .addComponent(facultyTypeCombo3, javax.swing.GroupLayout.Alignment.LEADING, 0, 128, Short.MAX_VALUE)
+                                .addComponent(facultyTextField3))
+                            .addComponent(facultyTypeCombo3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(natureProComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(37, 37, 37)
                         .addComponent(addFacultyButton)
@@ -247,7 +270,9 @@ public class FacultyInfo extends javax.swing.JFrame {
                     .addComponent(semComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(batchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(nextButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextButton)
+                    .addComponent(saveButton))
                 .addGap(46, 46, 46))
         );
 
@@ -270,6 +295,32 @@ public class FacultyInfo extends javax.swing.JFrame {
         this.setVisible(false);
         af.setVisible(true);
     }//GEN-LAST:event_addFacultyButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+      try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
+            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+            System.out.println("Connection successfully established");
+            Statement stmt = conn.createStatement();
+           String department = (String)departmentComboBox.getSelectedItem();
+           
+             String query ="insert into department(Dept_Name) values(?)";
+             PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, department);
+            pstmt.executeUpdate();
+       
+
+       
+
+        conn.close(); // Close the connection
+         
+        }
+         catch(Exception e){
+             e.printStackTrace();
+         }
+      
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,6 +382,7 @@ public class FacultyInfo extends javax.swing.JFrame {
     private javax.swing.JLabel programName;
     private javax.swing.JComboBox<String> programNameComboBox;
     private javax.swing.JLabel programNature;
+    private javax.swing.JButton saveButton;
     private javax.swing.JComboBox<String> semComboBox;
     private javax.swing.JLabel semester;
     // End of variables declaration//GEN-END:variables

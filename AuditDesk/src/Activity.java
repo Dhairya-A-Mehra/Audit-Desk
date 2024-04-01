@@ -89,6 +89,11 @@ public class Activity extends javax.swing.JFrame {
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
 
         SubmitButton.setText("Submit");
+        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,6 +168,10 @@ public class Activity extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
+        
+    }//GEN-LAST:event_SubmitButtonActionPerformed
 
     /**
      * @param args the command line arguments
