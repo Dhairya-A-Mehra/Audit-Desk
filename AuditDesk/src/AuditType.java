@@ -113,8 +113,8 @@ public class AuditType extends javax.swing.JFrame {
 
     private void mid_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mid_typeActionPerformed
         // TODO add your handling code here:
-        FacultyInfo fi = new FacultyInfo();
-        fi.setVisible(true);
+        new Login().setVisible(true);
+        
         this.setVisible(false);
     }//GEN-LAST:event_mid_typeActionPerformed
 
