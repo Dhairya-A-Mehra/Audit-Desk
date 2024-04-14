@@ -7,6 +7,19 @@
  *
  * @author HP
  */
+
+import databaseCreds.DatabaseCredentials;
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 public class Activity extends javax.swing.JFrame {
 
     /**
@@ -183,7 +196,40 @@ public class Activity extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
+         try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
+            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
         
+        // Prepare a SQL statement to retrieve data
+        String sql = "select t1.name_of_institute, t1.name_of_department, t1.name_of_programme, t1. nature_of_programme, t1.semester, t1.batch, tf.name_of_faculty, tf.faculty_type from table_form_1 t1 join table_form_faculty tf on t1.form_id=tf.form_id;";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        
+        // Execute the query
+        ResultSet result = statement.executeQuery();
+        
+        // Create a JasperReport object from the compiled report file (*.jasper)
+        JasperReport jasperReport = JasperCompileManager.compileReport("C:\\Users\\DC\\Documents\\GitHub\\Audit-Desk\\AuditDesk\\src\\Reports\\Mid Sem Audit Form.jrxml");
+        
+        // Create a JRDataSource (JasperReports DataSource) from the ResultSet
+        JRResultSetDataSource dataSource = new JRResultSetDataSource(result);
+        
+        // Fill the report with data and compile it
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
+        
+        // Close resources
+        result.close();
+        statement.close();
+        conn.close();
+        
+        // View the report in JasperViewer
+        JasperViewer viewer = new JasperViewer(jasperPrint);
+        viewer.setVisible(true);
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
     private void prevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevButtonActionPerformed
