@@ -56,3 +56,22 @@ Result_Date DATE,
 Types varchar(30),
 Student_Signature BOOLEAN
 );
+
+-- below table are for printing the form
+
+create table Table_Form_1 (
+	form_id int primary key,
+    name_of_institute varchar(20),
+    name_of_department varchar(20),
+    name_of_programme varchar(20),
+    nature_of_programme varchar(20),
+    semester int,
+    batch varchar(20),
+    co_po_mapping bool,
+    session_plan bool,
+    evaluation_plan bool,
+    attendance bool,
+    action_planned_on_CO_attachment bool,
+    co_attainment_of_previous_year bool,
+    ca_result bool
+);
