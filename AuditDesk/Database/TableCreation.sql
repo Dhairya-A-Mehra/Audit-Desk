@@ -75,3 +75,12 @@ create table Table_Form_1 (
     co_attainment_of_previous_year bool,
     ca_result bool
 );
+
+create table Table_form_faculty (
+	faculty_id int,
+    foreign key(faculty_id) references faculty(faculty_id),
+    name_of_faculty varchar(20),
+    faculty_type varchar(20),
+    form_id int, 
+    foreign key(form_id) references table_form_1(form_id)
+);
