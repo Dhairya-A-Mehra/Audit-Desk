@@ -57,7 +57,7 @@ Types varchar(30),
 Student_Signature BOOLEAN
 );
 
--- below table are for printing the form
+-- below written table are for printing the form
 
 create table Table_Form_1 (
 	form_id int primary key,
@@ -90,6 +90,18 @@ create table Table_form_course (
     credits int,
     number_of_hours_alloted int,
     number_of_hours_conducted int,
+    form_id int,
+    foreign key(form_id) references table_form_1(form_id)
+);
+
+create table table_form_internal_assessment (
+	assessment_id int,
+    foreign key(assessment_id) references internal_assessment(assessment_id),
+    assessment_type varchar(20),
+    date_of_planned_assessment date,
+    date_of_conducted_assessment date,
+    result_date date,
+    signature_of_students_on_marksheet bool,
     form_id int,
     foreign key(form_id) references table_form_1(form_id)
 );
