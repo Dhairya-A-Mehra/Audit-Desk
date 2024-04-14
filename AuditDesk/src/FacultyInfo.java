@@ -1,4 +1,5 @@
 
+import databaseCreds.DatabaseCredentials;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -127,7 +128,7 @@ public class FacultyInfo extends javax.swing.JFrame {
 
         batchYr.setText("Batch");
 
-        semComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", " " }));
+        semComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
 
         batchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020-24", "2021-25", "2022-26", "2023-27", " " }));
 
@@ -140,7 +141,7 @@ public class FacultyInfo extends javax.swing.JFrame {
 
         departmentname.setText("Name of Department");
 
-        departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CSE", "AIML", "RNA", "ENTC", "CIVIL", "MECH" }));
+        departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CE", "CSE", "ENTC", "ME", "AIML ", "RNA", "GST", "ES", "ED", "AT ", " " }));
 
         addFacultyButton.setText("Add Faculty");
         addFacultyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -302,14 +303,38 @@ public class FacultyInfo extends javax.swing.JFrame {
             Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
             DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
             System.out.println("Connection successfully established");
-            Statement stmt = conn.createStatement();
+            
+           String institute_name=(String)instituteNameTextfield.getText();
            String department = (String)departmentComboBox.getSelectedItem();
+           String pname=(String)programNameComboBox.getSelectedItem();
+           String nature=(String)natureProComboBox.getSelectedItem();
+           Integer sem = Integer.parseInt((String)semComboBox.getSelectedItem());
+           String batch=(String)batchComboBox.getSelectedItem();
+           String fac_name=(String)facultyTextField1.getText();
+           String fac_type=(String)facultyTypeCombo1.getSelectedItem();
            
-             String query ="insert into department(Dept_Name) values(?)";
-             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, department);
-            pstmt.executeUpdate();
-       
+           
+           String query="insert into Table_Form_1 (form_id, name_of_institute, name_of_department, name_of_programme, nature_of_programme, semester, batch)\n" +
+" values(?,?,?,?,?,?,?);";
+           
+           PreparedStatement pstmt = conn.prepareStatement(query);
+           pstmt.setInt(1,2);
+           pstmt.setString(2,institute_name);
+           pstmt.setString(3,department);
+           pstmt.setString(4,pname);
+           pstmt.setString(5,nature);
+           pstmt.setInt(6,sem);
+           pstmt.setString(7,batch);
+           // pstmt.executeUpdate();
+            
+           String query2="insert into Table_Form_faculty (name_of_faculty, faculty_type, form_id,faculty_id)\n" +
+"values(?,?,?,?); ";
+           PreparedStatement pstmt1 = conn.prepareStatement(query2);
+           pstmt1.setString(1,fac_name);
+           pstmt1.setString(2,fac_type);
+           pstmt1.setInt(3, 2);
+           pstmt1.setInt(4,1);
+           pstmt1.executeUpdate();
 
        
 
