@@ -84,3 +84,12 @@ create table Table_form_faculty (
     form_id int, 
     foreign key(form_id) references table_form_1(form_id)
 );
+
+create table Table_form_course (
+	course_name_with_code varchar(50),
+    credits int,
+    number_of_hours_alloted int,
+    number_of_hours_conducted int,
+    form_id int,
+    foreign key(form_id) references table_form_1(form_id)
+);
