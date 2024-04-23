@@ -3,10 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package home;
-import utils.DatabaseCredentials;
+import utils.DatabaseConnectivity;
+import utils.Session;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 /**
@@ -14,7 +15,8 @@ import javax.swing.JOptionPane;
  * @author Rutu Bhanderi
  */
 public class SignIn extends javax.swing.JFrame {
-
+    private Main main_page;
+    
     /**
      * Creates new form SignIn
      */
@@ -100,38 +102,69 @@ public class SignIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInButtonActionPerformed
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-            System.out.println("Connection successfully established");
-            Statement stmt = conn.createStatement();
-            String username = usernameTextField.getText();
-            String userpass= String.valueOf(PasswordField.getPassword());
-            String query = "SELECT password FROM faculty where faculty_email= '"+username+"';";
-            ResultSet rs=stmt.executeQuery(query);
-            boolean loginSuccessful = false;
-        while(rs.next()) {
-            if(userpass.equals(rs.getString(1))) {
-                loginSuccessful = true;
-                break;
+        Connection conn = DatabaseConnectivity.connectDatabase();
+        if(conn!=null){
+            try( Statement stmt = conn.createStatement()){
+                String username=usernameTextField.getText();
+                if(username.length()!=0){
+                    String userpass= String.valueOf(PasswordField.getPassword());
+                    String query = "SELECT password FROM faculty where faculty_email= '"+username+"';";
+                    ResultSet rs=stmt.executeQuery(query);
+                    while(rs.next()){
+                        if(userpass.equals(rs.getString(1))){
+                             int facultyID = -1;
+                            String fname = "";
+                           // String program="";
+                             query="select faculty_ID,faculty_name from faculty where faculty_email='"+username+"'";
+                             rs =stmt.executeQuery(query);
+                             while(rs.next()){
+                                 facultyID=rs.getInt(1);
+                                 fname=rs.getString(2);
+                                 //program=rs.getString(3);                                
+                             }
+                             Session.setSignIn(facultyID,username,userpass,fname);
+                              JOptionPane.showMessageDialog(rootPane, "Logged in successful",
+                                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                              main_page.setVisible(true);
+                              this.dispose();
+                        }
+                    }
+                }else{
+                     JOptionPane.showMessageDialog(rootPane, "Username cannot be empty!", 
+                            "Input Error", JOptionPane.ERROR_MESSAGE);
+                }
+                
+            }catch(SQLException e)
+            {
+                 JOptionPane.showMessageDialog(rootPane, "SQL Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "An error occurred: " + e.getMessage(), "Unknown Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        if (loginSuccessful) {
-            // Decide what action to take after successful login
-            // For example, open a new window or navigate to a different screen
-            JOptionPane.showMessageDialog(rootPane, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            new Main(username).setVisible(true);
-            this.dispose();
-        } else {
-            // Display error message for unsuccessful login
-            JOptionPane.showMessageDialog(rootPane, "Login unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        conn.close(); // Close the connection              
-         }
-         catch(Exception e){
-             e.printStackTrace();
-         }
+        DatabaseConnectivity.closeConnection(conn);
+//       
+//            boolean loginSuccessful = false;
+//        while(rs.next()) {
+//            if(userpass.equals(rs.getString(1))) {
+//                loginSuccessful = true;
+//                break;
+//            }
+//        }
+//        if (loginSuccessful) {
+//            // Decide what action to take after successful login
+//            // For example, open a new window or navigate to a different screen
+//            JOptionPane.showMessageDialog(rootPane, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+//            new Main(username).setVisible(true);
+//            this.dispose();
+//        } else {
+//            // Display error message for unsuccessful login
+//            JOptionPane.showMessageDialog(rootPane, "Login unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        conn.close(); // Close the connection              
+//         }
+//         catch(Exception e){
+//             e.printStackTrace();
+//         }
     }//GEN-LAST:event_SignInButtonActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -140,7 +173,7 @@ public class SignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        new SignUp().setVisible(true);
+        //new SignUp().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 

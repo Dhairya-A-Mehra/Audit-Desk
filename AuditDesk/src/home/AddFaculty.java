@@ -4,7 +4,7 @@
  */
 package home;
 
-import utils.DatabaseCredentials;
+import utils.DatabaseConnectivity;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -108,9 +108,7 @@ public class AddFaculty extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
        // add connectivity
        try{
-           Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+          Connection conn = DatabaseConnectivity.connectDatabase();
            
            //setting fields
             String facultyName=(String)nameTextField.getText();

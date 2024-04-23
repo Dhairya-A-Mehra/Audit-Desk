@@ -77,9 +77,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                           <Component id="instituteName" min="-2" pref="149" max="-2" attributes="0"/>
@@ -89,7 +89,6 @@
                           <Component id="deptComboBox" min="-2" pref="145" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
                           <Component id="facTextField1" min="-2" pref="149" max="-2" attributes="0"/>
@@ -99,7 +98,6 @@
                           <Component id="facTextField3" min="-2" pref="145" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                           <Component id="fac_typeComboBox1" min="-2" pref="149" max="-2" attributes="0"/>
@@ -109,7 +107,6 @@
                           <Component id="fac_typeComboBox3" min="-2" pref="145" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                           <Component id="proNameComboBox" min="-2" max="-2" attributes="0"/>
@@ -121,7 +118,6 @@
                           <Component id="batchComboBox" min="-2" pref="145" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
                           <Component id="semComboBox" min="-2" pref="154" max="-2" attributes="0"/>

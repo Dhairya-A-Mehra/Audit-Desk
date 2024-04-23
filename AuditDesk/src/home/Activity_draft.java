@@ -4,7 +4,7 @@
  */
 package home;
 
-import utils.DatabaseCredentials;
+import utils.DatabaseConnectivity;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -214,12 +214,8 @@ public class Activity_draft extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try{
-              Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-            System.out.println("Connection successfully established");
-            
-          
+             Connection conn = DatabaseConnectivity.connectDatabase();
+                      
             String query ="INSERT INTO table_form_1 (form_id,co_po_mapping,co_attainment_of_previous_year,action_planned_on_CO_attachment,session_plan,evaluation_plan,ca_result,attendance) "
                     + "values(?,?,?,?,?,?,?,?);";
             

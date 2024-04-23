@@ -4,12 +4,14 @@
  */
 package home;
 
-import utils.DatabaseCredentials;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import utils.DatabaseConnectivity;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import utils.Validations;
+import java.sql.Statement;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -106,47 +108,76 @@ public class SignUp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
-       try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-            System.out.println("Connection successfully established");
+        Connection conn = DatabaseConnectivity.connectDatabase();
+        if(conn!=null){
+            try{
             
+            Statement stmt = conn.createStatement();
             String name = nameTextField.getText();
-            String userpass1 = String.valueOf(newpassField.getPassword());
-            String userpass2 = String.valueOf(reenteredpassField.getPassword());
-            String email = emailTextField.getText();
             if(name.length()!=0){
-                
+                String email = emailTextField.getText();                              
+                if(Validations.isEmailValid(email)){
+                        //query
+                       String query  ="select faculty_Email from faculty where faculty_Email='"+email+"';";
+                       ResultSet rs=stmt.executeQuery(query); 
+                       if(!rs.next()){
+                           String userpass1 = String.valueOf(newpassField.getPassword());
+                           if(Validations.isPasswordValid(userpass1))
+                           {
+                            String userpass2 = String.valueOf(reenteredpassField.getPassword()); 
+                            if(userpass1.equals(userpass2)){
+                                String query1 ="insert into faculty (faculty_name,faculty_Email,Password) values(?,?,?)";
+                                try (PreparedStatement pstmt = conn.prepareStatement(query1)) {
+                                pstmt.setString(1, name);
+                                pstmt.setString(2, email);
+                                pstmt.setString(3, userpass1);
+                                pstmt.executeUpdate();
+                                    JOptionPane.showMessageDialog(rootPane, "Account created successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                                new SignIn().setVisible(true);
+                                this.dispose();
+                            }              
+                             catch (Exception e) {
+                                 JOptionPane.showMessageDialog(rootPane, "Account creation unsuccessfull!", "Error", JOptionPane.INFORMATION_MESSAGE);
+                            }
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(rootPane, "Passwords are not equal.", 
+                                            "Input Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                           }else{
+                               JOptionPane.showMessageDialog(rootPane, """
+                                                                        Password must be 8 characters long and must contain
+                                                                        - 1 capital letter
+                                                                        - 1 small letter
+                                                                        - 1 special character
+                                                                        - 1 number.""", 
+                                        "Input Error", JOptionPane.ERROR_MESSAGE);
+                           }
+                       }else{
+                           JOptionPane.showMessageDialog(rootPane, "Email is already taken, try a different email.", 
+                                    "Unvailable", JOptionPane.ERROR_MESSAGE);
+                       }
+                        }else{
+                    JOptionPane.showMessageDialog(rootPane, "Email is invalid.", 
+                                            "Input Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }else{
+                 JOptionPane.showMessageDialog(rootPane, "Name cannot be empty.", 
+                                    "Input Error", JOptionPane.ERROR_MESSAGE);
             }
-            if(userpass1.equals(userpass2))
-            {
-            //String query = "SELECT username FROM login WHERE username = ? AND email = ?";
-            String query ="insert into faculty (faculty_name,faculty_Email,Password) values(?,?,?)";
-            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, name);
-            pstmt.setString(2, email);
-            pstmt.setString(3, userpass1);
-            pstmt.executeUpdate();
-            
-            
-            JOptionPane.showMessageDialog(rootPane, "Account created successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            new SignIn().setVisible(true);
-            this.dispose();
-        }              
-         catch (Exception e) {
-            e.printStackTrace();
-        }
-       }
-       } 
-       catch (ClassNotFoundException e) {
-    e.printStackTrace();
-    System.err.println("MySQL JDBC driver not found");
-}
-       catch(SQLException e){
-           e.printStackTrace();
-        }
-      
+            }
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(rootPane, "SQL Error: " + e.getMessage(),
+                        "Database Error", JOptionPane.ERROR_MESSAGE);
+                }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "An error occurred: " + e.getMessage(),
+                        "Unknown Error", JOptionPane.ERROR_MESSAGE);
+                    }
+            }
+         DatabaseConnectivity.closeConnection(conn);
+   
+    
 
             
     }//GEN-LAST:event_SignUpButtonActionPerformed

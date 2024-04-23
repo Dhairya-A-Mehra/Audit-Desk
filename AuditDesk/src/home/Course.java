@@ -4,13 +4,11 @@
  */
 package home;
 
-import utils.DatabaseCredentials;
+import utils.DatabaseConnectivity;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-
 import javax.swing.JOptionPane;
 
 /**
@@ -194,10 +192,7 @@ public class Course extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-            System.out.println("Connection successfully established");
+            Connection conn = DatabaseConnectivity.connectDatabase();
            //setting fields
             String course=(String)courseNameTextField.getText();
             Integer credits= Integer.valueOf((String)creditsTextField.getText());
@@ -237,10 +232,7 @@ public class Course extends javax.swing.JFrame {
     private void courseIDComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseIDComboBoxActionPerformed
         try{
             //connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-            System.out.println("Connection successfully established");
+           Connection conn = DatabaseConnectivity.connectDatabase();
             Statement stmt=conn.createStatement();
             Integer courseID = Integer.valueOf((String)courseIDComboBox.getSelectedItem());
             String q1="select course_Title,credits from course where course_ID='"+courseID+"';";

@@ -4,7 +4,7 @@
  */
 package home;
 
-import utils.DatabaseCredentials;
+import utils.DatabaseConnectivity;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -250,10 +250,7 @@ public class FacultyInfo extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
          try{
-             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-            System.out.println("Connection successfully established");
+            Connection conn = DatabaseConnectivity.connectDatabase();
             //getting data
             String iname=instituteName.getText();
             String dept=(String)deptComboBox.getSelectedItem();

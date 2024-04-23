@@ -8,14 +8,10 @@
  * @author HP
  */
 
-import utils.DatabaseCredentials;
-import java.awt.Color;
+import utils.DatabaseConnectivity;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import net.sf.jasperreports.engine.*;
@@ -197,9 +193,8 @@ public class Activity extends javax.swing.JFrame {
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
          try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+        
+             Connection conn = DatabaseConnectivity.connectDatabase();
         
         // Prepare a SQL statement to retrieve data
         String sql = "select t1.name_of_institute, t1.name_of_department, t1.name_of_programme, t1. nature_of_programme, t1.semester, t1.batch, tf.name_of_faculty, tf.faculty_type from table_form_1 t1 join table_form_faculty tf on t1.form_id=tf.form_id;";

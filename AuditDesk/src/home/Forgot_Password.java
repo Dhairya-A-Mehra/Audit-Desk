@@ -4,13 +4,12 @@
  */
 package home;
 
-import utils.DatabaseCredentials;
+import utils.DatabaseConnectivity;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 
 /**
@@ -189,10 +188,7 @@ public class Forgot_Password extends javax.swing.JFrame {
 
     private void verifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyButtonActionPerformed
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-            System.out.println("Connection successfully established");
+            Connection conn = DatabaseConnectivity.connectDatabase();
             String username = usernameTextField.getText();
             String program=(String)programComboBox.getSelectedItem();
             String query = "SELECT faculty_ID FROM faculty WHERE program_ID = ? AND Faculty_Email = ?";
@@ -240,10 +236,7 @@ public class Forgot_Password extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
                 try{
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
-                    DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
-                    System.out.println("Connection successfully established");
+                Connection conn = DatabaseConnectivity.connectDatabase();
                 String newPass = String.valueOf(passField.getPassword());
                 String confPass = String.valueOf(repassField.getPassword());
                 if (newPass.equals(confPass)) {
