@@ -4,7 +4,7 @@
  */
 package home;
 
-import databaseCreds.DatabaseCredentials;
+import utils.DatabaseCredentials;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,7 +49,6 @@ public class SignUp extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -69,13 +68,13 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel2.setText("Name:");
         jLabel2.setToolTipText("");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
         jLabel3.setText("Email / Username:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
 
         jLabel4.setText("New Password:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
 
         jLabel5.setText("Re-enter New Password:\n");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
@@ -103,6 +102,7 @@ public class SignUp extends javax.swing.JFrame {
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
@@ -116,6 +116,9 @@ public class SignUp extends javax.swing.JFrame {
             String userpass1 = String.valueOf(newpassField.getPassword());
             String userpass2 = String.valueOf(reenteredpassField.getPassword());
             String email = emailTextField.getText();
+            if(name.length()!=0){
+                
+            }
             if(userpass1.equals(userpass2))
             {
             //String query = "SELECT username FROM login WHERE username = ? AND email = ?";

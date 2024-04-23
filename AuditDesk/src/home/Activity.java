@@ -8,7 +8,7 @@
  * @author HP
  */
 
-import databaseCreds.DatabaseCredentials;
+import utils.DatabaseCredentials;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;

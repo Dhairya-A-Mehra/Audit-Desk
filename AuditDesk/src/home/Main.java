@@ -61,6 +61,7 @@ public class Main extends javax.swing.JFrame {
         SignIn = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         user_name = new javax.swing.JLabel();
+        AddFacultyLabel = new javax.swing.JLabel();
         auditTypePanel = new javax.swing.JPanel();
         AuditTypeLabel = new javax.swing.JLabel();
         MidSemButton = new javax.swing.JButton();
@@ -103,7 +104,7 @@ public class Main extends javax.swing.JFrame {
 
         header2.setBackground(new java.awt.Color(204, 204, 255));
 
-        SignUp.setForeground(new java.awt.Color(51, 0, 255));
+        SignUp.setForeground(new java.awt.Color(51, 0, 204));
         SignUp.setText("Sign Up");
         SignUp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,7 +112,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        SignIn.setForeground(new java.awt.Color(0, 51, 255));
+        SignIn.setForeground(new java.awt.Color(0, 51, 204));
         SignIn.setText("Sign In");
         SignIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,6 +126,14 @@ public class Main extends javax.swing.JFrame {
         user_name.setText("Unsigned User");
         user_name.setToolTipText("");
 
+        AddFacultyLabel.setForeground(new java.awt.Color(0, 51, 204));
+        AddFacultyLabel.setText("Add Faculty");
+        AddFacultyLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddFacultyLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout header2Layout = new javax.swing.GroupLayout(header2);
         header2.setLayout(header2Layout);
         header2Layout.setHorizontalGroup(
@@ -135,6 +144,8 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(user_name)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AddFacultyLabel)
+                .addGap(40, 40, 40)
                 .addComponent(SignIn)
                 .addGap(37, 37, 37)
                 .addComponent(SignUp)
@@ -149,7 +160,8 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(header2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(SignUp)
                         .addComponent(SignIn)
-                        .addComponent(user_name)))
+                        .addComponent(user_name)
+                        .addComponent(AddFacultyLabel)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -161,6 +173,11 @@ public class Main extends javax.swing.JFrame {
         MidSemButton.setBackground(new java.awt.Color(204, 204, 255));
         MidSemButton.setText("Mid Semester");
         MidSemButton.setEnabled(false);
+        MidSemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MidSemButtonActionPerformed(evt);
+            }
+        });
 
         EndSemButton.setBackground(new java.awt.Color(204, 204, 255));
         EndSemButton.setText("End Semester");
@@ -249,6 +266,16 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_SignUpMouseClicked
 
+    private void MidSemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MidSemButtonActionPerformed
+        new FacultyInfo().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_MidSemButtonActionPerformed
+
+    private void AddFacultyLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddFacultyLabelMouseClicked
+            new AddFaculty().setVisible(true);
+            this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_AddFacultyLabelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -285,6 +312,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AddFacultyLabel;
     private javax.swing.JLabel AuditTypeLabel;
     private javax.swing.JButton EndSemButton;
     private javax.swing.JPanel Header;

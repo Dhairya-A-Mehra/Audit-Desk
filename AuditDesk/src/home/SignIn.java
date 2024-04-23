@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package home;
-import databaseCreds.DatabaseCredentials;
+import utils.DatabaseCredentials;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -38,8 +38,9 @@ public class SignIn extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         usernameTextField = new javax.swing.JTextField();
         PasswordField = new javax.swing.JPasswordField();
-        SignUpButton = new javax.swing.JButton();
         SignInButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -66,23 +67,33 @@ public class SignIn extends javax.swing.JFrame {
         jPanel2.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 48, 90, -1));
         jPanel2.add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 118, 90, -1));
 
-        SignUpButton.setText("Sign Up");
-        SignUpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignUpButtonActionPerformed(evt);
-            }
-        });
-        jPanel2.add(SignUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 190, -1, -1));
-
         SignInButton.setText("Sign In");
         SignInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SignInButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(SignInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 190, -1, -1));
+        jPanel2.add(SignInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel3.setText("Forgot Password");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel4.setText("Don't have an Account ? Sign Up here");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
@@ -123,9 +134,15 @@ public class SignIn extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_SignInButtonActionPerformed
 
-    private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
-        
-    }//GEN-LAST:event_SignUpButtonActionPerformed
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        new Forgot_Password().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        new SignUp().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -167,9 +184,10 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JButton SignInButton;
     private javax.swing.JLabel SignInLabel;
-    private javax.swing.JButton SignUpButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
