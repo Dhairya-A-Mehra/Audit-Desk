@@ -1,47 +1,29 @@
-package home;
-import databaseCreds.DatabaseCredentials;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package home;
+
+import utils.DatabaseCredentials;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author HP
+ * @author Rutu Bhanderi
  */
 public class FacultyInfo extends javax.swing.JFrame {
 
     /**
-     * Creates new form FacultyInfo
+     * Creates new form FacultyInfo_draft
      */
     public FacultyInfo() {
         initComponents();
-
-        // Set light yellowish background for the frame and content pane
-        getContentPane().setBackground(new java.awt.Color(250, 240, 230)); // Light yellowish
-
-        // Set black foreground color for all labels
-        for (java.awt.Component component : getContentPane().getComponents()) {
-            if (component instanceof javax.swing.JLabel) {
-                component.setForeground(new java.awt.Color(0, 0, 0)); // Black color
-            }
-        }
-
-        // Set green background for all buttons
-        for (java.awt.Component component : getContentPane().getComponents()) {
-            if (component instanceof javax.swing.JButton) {
-                component.setBackground(new java.awt.Color(50, 205, 50)); // Green color
-            }
-        }
+       
+        
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,103 +34,86 @@ public class FacultyInfo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        instituteNameTextfield = new javax.swing.JTextField();
-        facultyTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        facultyTypeCombo1 = new javax.swing.JComboBox<>();
-        facultyTypeCombo2 = new javax.swing.JComboBox<>();
-        facultyTypeCombo3 = new javax.swing.JComboBox<>();
-        facultyTextField2 = new javax.swing.JTextField();
-        facultyTextField3 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        programName = new javax.swing.JLabel();
-        programNameComboBox = new javax.swing.JComboBox<>();
-        programNature = new javax.swing.JLabel();
-        natureProComboBox = new javax.swing.JComboBox<>();
-        semester = new javax.swing.JLabel();
-        batchYr = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        proNameComboBox = new javax.swing.JComboBox<>();
         semComboBox = new javax.swing.JComboBox<>();
-        batchComboBox = new javax.swing.JComboBox<>();
-        nextButton = new javax.swing.JButton();
+        natureComboBox = new javax.swing.JComboBox<>();
         departmentname = new javax.swing.JLabel();
-        departmentComboBox = new javax.swing.JComboBox<>();
-        addFacultyButton = new javax.swing.JButton();
+        batchYr = new javax.swing.JLabel();
+        instituteName = new javax.swing.JTextField();
+        facTextField1 = new javax.swing.JTextField();
+        fac_typeComboBox1 = new javax.swing.JComboBox<>();
+        facTextField2 = new javax.swing.JTextField();
+        fac_typeComboBox2 = new javax.swing.JComboBox<>();
+        facTextField3 = new javax.swing.JTextField();
+        fac_typeComboBox3 = new javax.swing.JComboBox<>();
+        batchComboBox = new javax.swing.JComboBox<>();
+        deptComboBox = new javax.swing.JComboBox<>();
         saveButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 125));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Audit Desk");
+        jLabel1.setText("Faculty Info");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 42, -1, -1));
 
-        jLabel2.setText("Name of the Institute");
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jLabel3.setText("Name of Faculty");
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel4.setText("Faculty Type");
+        jLabel2.setText("Institute Name:");
 
-        instituteNameTextfield.setText("SIT");
-        instituteNameTextfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                instituteNameTextfieldActionPerformed(evt);
-            }
-        });
+        jLabel3.setText("Faculty Name:");
 
-        facultyTextField1.setText("fac1");
+        jLabel4.setText("Faculty Type:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dr.", "Prof", "Mr", "Ms" }));
+        jLabel5.setText("Programme:");
 
-        facultyTypeCombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Time", "Visiting", "Adjunct" }));
+        jLabel6.setText("Semester:");
 
-        facultyTypeCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Time", "Visiting", "Adjunct" }));
-
-        facultyTypeCombo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Time", "Visiting", "Adjunct" }));
-
-        facultyTextField2.setText("fac2");
-
-        facultyTextField3.setText("fac3");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dr.", "Prof", "Mr", "Ms" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dr.", "Prof", "Mr", "Ms" }));
-
-        programName.setText("Name of Programme");
-
-        programNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "B.Tech", "M.Tech" }));
-
-        programNature.setText("Nature of Programme");
-
-        natureProComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UG", "PG", " " }));
-
-        semester.setText("Semester");
-
-        batchYr.setText("Batch");
+        proNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "B.Tech.", "M.Tech.", " " }));
 
         semComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
 
-        batchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020-24", "2021-25", "2022-26", "2023-27", " " }));
-
-        nextButton.setText("Next");
-        nextButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextButtonActionPerformed(evt);
-            }
-        });
+        natureComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UG", "PG" }));
 
         departmentname.setText("Name of Department");
 
-        departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CE", "CSE", "ENTC", "ME", "AIML ", "RNA", "GST", "ES", "ED", "AT ", " " }));
+        batchYr.setText("Batch");
 
-        addFacultyButton.setText("Add Faculty");
-        addFacultyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addFacultyButtonActionPerformed(evt);
-            }
-        });
+        instituteName.setText("SIT");
+        instituteName.setEnabled(false);
+
+        facTextField1.setToolTipText("faculty 1");
+
+        fac_typeComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Time", "Visiting", "Adjunct", " " }));
+
+        facTextField2.setToolTipText("faculty 2");
+
+        fac_typeComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Time", "Visiting", "Adjunct" }));
+
+        facTextField3.setToolTipText("faculty 3");
+
+        fac_typeComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Time", "Visiting", "Adjunct" }));
+
+        batchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020-24", "2021-25", "2022-26", "2023-27" }));
+
+        deptComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CE", "CSE", "ENTC", "ME", "AIML ", "RNA", "GST", "ES", "ED", "AT ", " " }));
 
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -157,191 +122,197 @@ public class FacultyInfo extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(facultyTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addComponent(programName)
-                                    .addComponent(semester))
-                                .addGap(109, 109, 109)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(facultyTypeCombo1, javax.swing.GroupLayout.Alignment.LEADING, 0, 159, Short.MAX_VALUE)
-                                    .addComponent(instituteNameTextfield, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(programNameComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(semComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        backButton.setText("Back");
+
+        nextButton.setText("Next");
+        nextButton.setEnabled(false);
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(facultyTextField2))
-                                    .addComponent(facultyTypeCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(programNature)
-                                            .addComponent(batchYr))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(departmentname)
-                                .addGap(57, 57, 57))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(saveButton)
-                        .addGap(158, 158, 158)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(batchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(departmentComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(nextButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(facultyTextField3))
-                            .addComponent(facultyTypeCombo3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(natureProComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(37, 37, 37)
-                        .addComponent(addFacultyButton)
-                        .addGap(33, 33, 33))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(340, 340, 340))
+                        .addComponent(instituteName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(departmentname)
+                        .addGap(51, 51, 51)
+                        .addComponent(deptComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel3)
+                        .addGap(23, 23, 23)
+                        .addComponent(facTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(facTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(facTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel4)
+                        .addGap(30, 30, 30)
+                        .addComponent(fac_typeComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(fac_typeComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(fac_typeComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel5)
+                        .addGap(28, 28, 28)
+                        .addComponent(proNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(natureComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(142, 142, 142)
+                        .addComponent(batchYr)
+                        .addGap(18, 18, 18)
+                        .addComponent(batchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel6)
+                        .addGap(43, 43, 43)
+                        .addComponent(semComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(backButton)
+                .addGap(122, 122, 122)
+                .addComponent(saveButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nextButton)
+                .addGap(140, 140, 140))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(instituteName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deptComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(departmentname))))
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(instituteNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(departmentname)
-                    .addComponent(departmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(facultyTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(facultyTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(facultyTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addFacultyButton))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(facultyTypeCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(facultyTypeCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(facultyTypeCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(programName)
-                    .addComponent(programNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(natureProComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(programNature))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(semester)
-                    .addComponent(batchYr)
-                    .addComponent(semComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel3))
+                    .addComponent(facTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel4))
+                    .addComponent(fac_typeComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fac_typeComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fac_typeComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(proNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(natureComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(batchYr))
                     .addComponent(batchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nextButton)
-                    .addComponent(saveButton))
-                .addGap(46, 46, 46))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel6))
+                    .addComponent(semComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(saveButton)
+                    .addComponent(nextButton))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void instituteNameTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instituteNameTextfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_instituteNameTextfieldActionPerformed
-
-    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        
-    }//GEN-LAST:event_nextButtonActionPerformed
-
-    private void addFacultyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFacultyButtonActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_addFacultyButtonActionPerformed
-
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-      try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+         try{
+             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
             DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
             System.out.println("Connection successfully established");
+            //getting data
+            String iname=instituteName.getText();
+            String dept=(String)deptComboBox.getSelectedItem();
+            String fac1=facTextField1.getText();
+            String fac2=facTextField2.getText();
+            String fac3=facTextField3.getText();
+            String factype1=(String)fac_typeComboBox1.getSelectedItem();
+            String factype2=(String)fac_typeComboBox2.getSelectedItem();
+            String factype3=(String)fac_typeComboBox3.getSelectedItem();
+            String pro=(String)proNameComboBox.getSelectedItem();
+            String nat=(String)natureComboBox.getSelectedItem();
+            String batch=(String)batchComboBox.getSelectedItem();
+            Integer sem =Integer.valueOf((String)semComboBox.getSelectedItem());
             
-           String institute_name=(String)instituteNameTextfield.getText();
-           String department = (String)departmentComboBox.getSelectedItem();
-           String pname=(String)programNameComboBox.getSelectedItem();
-           String nature=(String)natureProComboBox.getSelectedItem();
-           Integer sem = Integer.parseInt((String)semComboBox.getSelectedItem());
-           String batch=(String)batchComboBox.getSelectedItem();
-           String fac_name=(String)facultyTextField1.getText();
-           String fac_type=(String)facultyTypeCombo1.getSelectedItem();
-           
-           
-           String query="insert into Table_Form_1 (form_id, name_of_institute, name_of_department, name_of_programme, nature_of_programme, semester, batch)\n" +
-" values(?,?,?,?,?,?,?);";
-           
-           PreparedStatement pstmt = conn.prepareStatement(query);
-           pstmt.setInt(1,2);
-           pstmt.setString(2,institute_name);
-           pstmt.setString(3,department);
-           pstmt.setString(4,pname);
-           pstmt.setString(5,nature);
-           pstmt.setInt(6,sem);
-           pstmt.setString(7,batch);
-           // pstmt.executeUpdate();
-            
-           String query2="insert into Table_Form_faculty (name_of_faculty, faculty_type, form_id,faculty_id)\n" +
-"values(?,?,?,?); ";
-           PreparedStatement pstmt1 = conn.prepareStatement(query2);
-           pstmt1.setString(1,fac_name);
-           pstmt1.setString(2,fac_type);
-           pstmt1.setInt(3, 2);
-           pstmt1.setInt(4,1);
-           pstmt1.executeUpdate();
-
+            String q1="INSERT INTO table_form_1 (form_id,name_of_institute,name_of_department,name_of_programme,nature_of_programme,semester,batch)"
+                    + "values(?,?,?,?,?,?,?);";
+            String q2="INSERT INTO table_form_faculty (form_id,name_of_faculty,faculty_type)"
+                    + "values(1,?,?),(1,?,?),(1,?,?);";
+            PreparedStatement pstmt = conn.prepareStatement(q1);
+                pstmt.setInt(1, 1);
+                pstmt.setString(2,iname);
+                pstmt.setString(3, dept);
+                pstmt.setString(4, pro);
+                pstmt.setString(5,nat);
+                pstmt.setInt(6,sem);
+                pstmt.setString(7,batch);
+             
+             PreparedStatement pstmt1 = conn.prepareStatement(q2);
+                pstmt1.setString(1,fac1);
+                pstmt1.setString(2,factype1);
+                pstmt1.setString(3,fac2);
+                pstmt1.setString(4,factype2);
+                pstmt1.setString(5,fac3);
+                pstmt1.setString(6,factype3);
+                
+                int rowsUpdated1=pstmt.executeUpdate(); 
+                int rowsUpdated2=pstmt1.executeUpdate();
+                        if (rowsUpdated1 > 0 && rowsUpdated2>0) {
+                            JOptionPane.showMessageDialog(rootPane, "Saved successfully.", 
+                                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                            nextButton.setEnabled(true);
+                            
+                        } else {
+                            JOptionPane.showMessageDialog(rootPane, 
+                                    "Failed to save details.", 
+                                    "Error", JOptionPane.ERROR_MESSAGE);
+                        }
        
-
-        conn.close(); // Close the connection
-         
-        }
-         catch(Exception e){
+             
+         }catch(Exception e){
              e.printStackTrace();
          }
-      
+        //nextButton.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        new Course().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_nextButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -369,6 +340,7 @@ public class FacultyInfo extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FacultyInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -379,32 +351,30 @@ public class FacultyInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addFacultyButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> batchComboBox;
     private javax.swing.JLabel batchYr;
-    private javax.swing.JComboBox<String> departmentComboBox;
     private javax.swing.JLabel departmentname;
-    private javax.swing.JTextField facultyTextField1;
-    private javax.swing.JTextField facultyTextField2;
-    private javax.swing.JTextField facultyTextField3;
-    private javax.swing.JComboBox<String> facultyTypeCombo1;
-    private javax.swing.JComboBox<String> facultyTypeCombo2;
-    private javax.swing.JComboBox<String> facultyTypeCombo3;
-    private javax.swing.JTextField instituteNameTextfield;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> deptComboBox;
+    private javax.swing.JTextField facTextField1;
+    private javax.swing.JTextField facTextField2;
+    private javax.swing.JTextField facTextField3;
+    private javax.swing.JComboBox<String> fac_typeComboBox1;
+    private javax.swing.JComboBox<String> fac_typeComboBox2;
+    private javax.swing.JComboBox<String> fac_typeComboBox3;
+    private javax.swing.JTextField instituteName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JComboBox<String> natureProComboBox;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> natureComboBox;
     private javax.swing.JButton nextButton;
-    private javax.swing.JLabel programName;
-    private javax.swing.JComboBox<String> programNameComboBox;
-    private javax.swing.JLabel programNature;
+    private javax.swing.JComboBox<String> proNameComboBox;
     private javax.swing.JButton saveButton;
     private javax.swing.JComboBox<String> semComboBox;
-    private javax.swing.JLabel semester;
     // End of variables declaration//GEN-END:variables
 }

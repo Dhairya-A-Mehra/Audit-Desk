@@ -4,6 +4,15 @@
  */
 package home;
 
+import utils.DatabaseCredentials;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rutu Bhanderi
@@ -37,10 +46,12 @@ public class Course extends javax.swing.JFrame {
         creditsTextField = new javax.swing.JTextField();
         noOfHrAllotTextField = new javax.swing.JTextField();
         noOfHrConTextField = new javax.swing.JTextField();
-        courseNameComboBox = new javax.swing.JComboBox<>();
+        courseIDComboBox = new javax.swing.JComboBox<>();
         nextButton = new javax.swing.JButton();
         prevButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        courseNameTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -58,7 +69,7 @@ public class Course extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel2.setText("Course Name:");
+        jLabel2.setText("Course ID:\n");
 
         jLabel3.setText("Credits:");
 
@@ -66,9 +77,15 @@ public class Course extends javax.swing.JFrame {
 
         jLabel5.setText("Number of Hours Conducted:");
 
-        courseNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        courseIDComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "701220401", "701220402", "701220403", "701220404", "701220405", "701220406", "701220407", "701220408", "701220409", "701220410", " ", " " }));
+        courseIDComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                courseIDComboBoxActionPerformed(evt);
+            }
+        });
 
         nextButton.setText("Next");
+        nextButton.setEnabled(false);
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -83,70 +100,75 @@ public class Course extends javax.swing.JFrame {
         });
 
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Course Name:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(184, 184, 184)
+                .addComponent(prevButton)
+                .addGap(105, 105, 105)
+                .addComponent(saveButton)
+                .addGap(124, 124, 124)
+                .addComponent(nextButton)
+                .addContainerGap(168, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
                         .addComponent(jLabel2)
-                        .addGap(133, 133, 133)
-                        .addComponent(courseNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jLabel3)
-                        .addGap(168, 168, 168)
-                        .addComponent(creditsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(courseIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(73, 73, 73)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(noOfHrAllotTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(50, 50, 50)
+                        .addGap(45, 45, 45)
                         .addComponent(noOfHrConTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(prevButton)
-                        .addGap(105, 105, 105)
-                        .addComponent(saveButton)
-                        .addGap(124, 124, 124)
-                        .addComponent(nextButton)))
-                .addContainerGap(319, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(creditsTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(courseNameTextField))))
+                .addGap(232, 232, 232))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2))
-                    .addComponent(courseNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(courseIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(courseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel3))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
                     .addComponent(creditsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel4))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
                     .addComponent(noOfHrAllotTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel5))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
                     .addComponent(noOfHrConTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(prevButton)
@@ -161,12 +183,78 @@ public class Course extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevButtonActionPerformed
-       
+       new FacultyInfo().setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_prevButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        //internal assessments
+        new Internal_Assessments().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+       try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
+            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+            System.out.println("Connection successfully established");
+           //setting fields
+            String course=(String)courseNameTextField.getText();
+            Integer credits= Integer.valueOf((String)creditsTextField.getText());
+            Integer noAllot=Integer.valueOf((String)noOfHrAllotTextField.getText());
+            Integer noCond=Integer.valueOf((String)noOfHrConTextField.getText());
+          
+            String query ="INSERT INTO table_form_course (Course_name_with_code,credits,number_of_hours_alloted,number_of_hours_conducted,form_id) "
+                    + "values(?,?,?,?,?)";
+            
+            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setString(1,course);
+                pstmt.setInt(2,credits);
+                pstmt.setInt(3, noAllot);
+                pstmt.setInt(4,noCond);
+                pstmt.setInt(5,1);
+       
+                
+                int rowsUpdated =pstmt.executeUpdate();
+                        if (rowsUpdated > 0) {
+                            JOptionPane.showMessageDialog(rootPane, "Course updated successfully.", 
+                                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                            nextButton.setEnabled(true);
+                            
+                        } else {
+                            JOptionPane.showMessageDialog(rootPane, 
+                                    "Failed to update course details.", 
+                                    "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+       }catch(Exception e){
+           e.printStackTrace();
+        }}
+       catch(Exception e){
+                e.printStackTrace();
+            }
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void courseIDComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseIDComboBoxActionPerformed
+        try{
+            //connection
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
+            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+            System.out.println("Connection successfully established");
+            Statement stmt=conn.createStatement();
+            Integer courseID = Integer.valueOf((String)courseIDComboBox.getSelectedItem());
+            String q1="select course_Title,credits from course where course_ID='"+courseID+"';";
+            ResultSet rs=stmt.executeQuery(q1);
+            if(rs.next()){
+                courseNameTextField.setText(rs.getString(1));
+                creditsTextField.setText(rs.getString(2));
+                
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_courseIDComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,13 +293,15 @@ public class Course extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> courseNameComboBox;
+    private javax.swing.JComboBox<String> courseIDComboBox;
+    private javax.swing.JTextField courseNameTextField;
     private javax.swing.JTextField creditsTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton nextButton;

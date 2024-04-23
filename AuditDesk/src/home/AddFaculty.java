@@ -4,6 +4,12 @@
  */
 package home;
 
+import utils.DatabaseCredentials;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rutu Bhanderi
@@ -34,10 +40,12 @@ public class AddFaculty extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
-        departmentComboBox = new javax.swing.JComboBox<>();
-        typeComboBox = new javax.swing.JComboBox<>();
-        AddButton = new javax.swing.JButton();
+        programComboBox = new javax.swing.JComboBox<>();
+        saveButton = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
+        emailTextField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        passField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,27 +67,24 @@ public class AddFaculty extends javax.swing.JFrame {
         jLabel2.setText("Faculty Name :");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
-        jLabel3.setText("Department :");
+        jLabel3.setText("Program:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
 
-        jLabel4.setText("Type :");
+        jLabel4.setText("Email:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
         jPanel2.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 110, -1));
 
-        departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CE", "CSE", "ENTC", "ME", "AIML ", "RNA", "GST", "ES", "ED", "AT ", " ", " " }));
-        departmentComboBox.setPreferredSize(new java.awt.Dimension(82, 22));
-        jPanel2.add(departmentComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 110, -1));
+        programComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UG-BTECH", "PG-MTECH", " ", " " }));
+        programComboBox.setPreferredSize(new java.awt.Dimension(82, 22));
+        jPanel2.add(programComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 110, -1));
 
-        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Time", "Visiting", "Adjunct", " " }));
-        jPanel2.add(typeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 110, -1));
-
-        AddButton.setText("Add");
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
+        jPanel2.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
 
         BackButton.setText("Back");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +92,12 @@ public class AddFaculty extends javax.swing.JFrame {
                 BackButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
+        jPanel2.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
+        jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 110, -1));
+
+        jLabel5.setText("Password:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        jPanel2.add(passField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 110, -1));
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -95,14 +105,51 @@ public class AddFaculty extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
        // add connectivity
-        new FacultyInfo().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_AddButtonActionPerformed
+       try{
+           Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
+            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+           
+           //setting fields
+            String facultyName=(String)nameTextField.getText();
+            String pro= (String)programComboBox.getSelectedItem();
+            String email=(String)emailTextField.getText();
+            String password=String.valueOf(passField.getPassword());
+          
+            String query ="INSERT INTO faculty(faculty_name,faculty_Email,program_ID,password) "
+                    + "values(?,?,?,?)";
+            
+            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setString(1, facultyName);
+                pstmt.setString(2,email);
+                pstmt.setString(3, pro);
+                pstmt.setString(4,password);
+       
+                
+                int rowsUpdated =pstmt.executeUpdate();
+                        if (rowsUpdated > 0) {
+                            JOptionPane.showMessageDialog(rootPane, "Faculty added successfully.", 
+                                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                            new FacultyInfo().setVisible(true);
+                            this.dispose();
+                            
+                        } else {
+                            JOptionPane.showMessageDialog(rootPane, 
+                                    "Failed to update Faculty details.", 
+                                    "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+       }catch(Exception e){
+           e.printStackTrace();
+        }}
+       catch(Exception e){
+                e.printStackTrace();
+            }
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        new FacultyInfo().setVisible(true);
+        new Main().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 
@@ -143,16 +190,18 @@ public class AddFaculty extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddButton;
     private javax.swing.JButton BackButton;
-    private javax.swing.JComboBox<String> departmentComboBox;
+    private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nameTextField;
-    private javax.swing.JComboBox<String> typeComboBox;
+    private javax.swing.JPasswordField passField;
+    private javax.swing.JComboBox<String> programComboBox;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }

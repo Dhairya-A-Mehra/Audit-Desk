@@ -4,6 +4,12 @@
  */
 package home;
 
+import utils.DatabaseCredentials;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rutu Bhanderi
@@ -91,10 +97,25 @@ public class Activity_draft extends javax.swing.JFrame {
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
 
         backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         nextButton.setText("Next");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,6 +202,57 @@ public class Activity_draft extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        new Internal_Assessments().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        try{
+              Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DatabaseCredentials.getUrl(),
+            DatabaseCredentials.getUname(), DatabaseCredentials.getPass());
+            System.out.println("Connection successfully established");
+            
+          
+            String query ="INSERT INTO table_form_1 (form_id,co_po_mapping,co_attainment_of_previous_year,action_planned_on_CO_attachment,session_plan,evaluation_plan,ca_result,attendance) "
+                    + "values(?,?,?,?,?,?,?,?);";
+            
+            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setInt(1,1);
+                pstmt.setBoolean(2, jComboBox1.getSelectedItem().equals("Yes"));
+                pstmt.setBoolean(3, jComboBox1.getSelectedItem().equals("Yes"));
+                pstmt.setBoolean(4, jComboBox1.getSelectedItem().equals("Yes"));
+                pstmt.setBoolean(5, jComboBox1.getSelectedItem().equals("Yes"));
+                pstmt.setBoolean(6, jComboBox1.getSelectedItem().equals("Yes"));
+                pstmt.setBoolean(7, jComboBox1.getSelectedItem().equals("Yes"));
+                pstmt.setBoolean(8, jComboBox1.getSelectedItem().equals("Yes"));
+               
+              
+       
+                
+                int rowsUpdated =pstmt.executeUpdate();
+                        if (rowsUpdated > 0) {
+                            JOptionPane.showMessageDialog(rootPane, "Activity updated successfully.", 
+                                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                            
+                        } else {
+                            JOptionPane.showMessageDialog(rootPane, 
+                                    "Failed to update Activity details.", 
+                                    "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+       }catch(Exception e){
+           e.printStackTrace();
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -135,6 +135,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="user_name" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="AddFacultyLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="SignIn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="SignUp" min="-2" max="-2" attributes="0"/>
@@ -152,6 +154,7 @@
                               <Component id="SignUp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="SignIn" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="user_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="AddFacultyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="19" max="32767" attributes="0"/>
@@ -163,7 +166,7 @@
             <Component class="javax.swing.JLabel" name="SignUp">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="0" red="33" type="rgb"/>
+                  <Color blue="cc" green="0" red="33" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sign Up"/>
               </Properties>
@@ -174,7 +177,7 @@
             <Component class="javax.swing.JLabel" name="SignIn">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="33" red="0" type="rgb"/>
+                  <Color blue="cc" green="33" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sign In"/>
               </Properties>
@@ -197,6 +200,17 @@
                 <Property name="text" type="java.lang.String" value="Unsigned User"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="AddFacultyLabel">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="33" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Add Faculty"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AddFacultyLabelMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -256,6 +270,9 @@
                 <Property name="text" type="java.lang.String" value="Mid Semester"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MidSemButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="EndSemButton">
               <Properties>
