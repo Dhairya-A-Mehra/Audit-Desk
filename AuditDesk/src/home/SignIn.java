@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Rutu Bhanderi
  */
 public class SignIn extends javax.swing.JFrame {
-    private Main main_page;
+    private String foundUsername;
     
     /**
      * Creates new form SignIn
@@ -106,6 +106,7 @@ public class SignIn extends javax.swing.JFrame {
         if(conn!=null){
             try( Statement stmt = conn.createStatement()){
                 String username=usernameTextField.getText();
+                
                 if(username.length()!=0){
                     String userpass= String.valueOf(PasswordField.getPassword());
                     String query = "SELECT password FROM faculty where faculty_email= '"+username+"';";
@@ -117,16 +118,18 @@ public class SignIn extends javax.swing.JFrame {
                            // String program="";
                              query="select faculty_ID,faculty_name from faculty where faculty_email='"+username+"'";
                              rs =stmt.executeQuery(query);
+                             
                              while(rs.next()){
                                  facultyID=rs.getInt(1);
                                  fname=rs.getString(2);
+                                 foundUsername=fname;
                                  //program=rs.getString(3);                                
                              }
                              Session.setSignIn(facultyID,username,userpass,fname);
                               JOptionPane.showMessageDialog(rootPane, "Logged in successful",
                                     "Success", JOptionPane.INFORMATION_MESSAGE);
-                              main_page.setVisible(true);
-                              this.dispose();
+                              new Main(foundUsername).setVisible(true);
+                              this.setVisible(false);
                         }
                     }
                 }else{

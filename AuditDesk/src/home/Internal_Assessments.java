@@ -226,7 +226,11 @@ public class Internal_Assessments extends javax.swing.JFrame {
         });
 
         nextButton.setText("Next");
-        nextButton.setEnabled(false);
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
         saveButton.setText("Save");
         saveButton.setEnabled(false);
@@ -384,6 +388,11 @@ public class Internal_Assessments extends javax.swing.JFrame {
         new White_paper().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_whitePaperButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        new Activity().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_nextButtonActionPerformed
 
     /**
      * @param args the command line arguments

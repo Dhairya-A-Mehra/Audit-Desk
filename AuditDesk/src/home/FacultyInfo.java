@@ -87,6 +87,11 @@ public class FacultyInfo extends javax.swing.JFrame {
         jLabel6.setText("Semester:");
 
         proNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "B.Tech.", "M.Tech.", " " }));
+        proNameComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proNameComboBoxActionPerformed(evt);
+            }
+        });
 
         semComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
 
@@ -137,9 +142,9 @@ public class FacultyInfo extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(instituteName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +153,6 @@ public class FacultyInfo extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addComponent(deptComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
                         .addComponent(jLabel3)
                         .addGap(23, 23, 23)
                         .addComponent(facTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,7 +161,6 @@ public class FacultyInfo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(facTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
                         .addComponent(jLabel4)
                         .addGap(30, 30, 30)
                         .addComponent(fac_typeComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,7 +169,6 @@ public class FacultyInfo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(fac_typeComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
                         .addComponent(jLabel5)
                         .addGap(28, 28, 28)
                         .addComponent(proNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,7 +179,6 @@ public class FacultyInfo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(batchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
                         .addComponent(jLabel6)
                         .addGap(43, 43, 43)
                         .addComponent(semComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -310,6 +311,15 @@ public class FacultyInfo extends javax.swing.JFrame {
         new Course().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void proNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proNameComboBoxActionPerformed
+        if(proNameComboBox.getSelectedItem()=="B.Tech."){
+            natureComboBox.setSelectedIndex(0);
+            
+        }else{
+            natureComboBox.setSelectedIndex(1);
+        }
+    }//GEN-LAST:event_proNameComboBoxActionPerformed
 
     /**
      * @param args the command line arguments

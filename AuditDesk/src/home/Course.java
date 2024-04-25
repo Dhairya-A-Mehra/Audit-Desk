@@ -242,6 +242,16 @@ public class Course extends javax.swing.JFrame {
                 creditsTextField.setText(rs.getString(2));
                 
             }
+            Integer cred=Integer.valueOf(creditsTextField.getText());
+            if(cred==0){
+                noOfHrAllotTextField.setText("25");
+                noOfHrConTextField.setText("25");
+            }else{
+                
+                noOfHrAllotTextField.setText(String.valueOf(cred*25));
+                noOfHrConTextField.setText(String.valueOf(cred*25));
+                
+            }
             
         }catch(Exception e){
             e.printStackTrace();
