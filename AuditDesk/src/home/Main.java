@@ -262,7 +262,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_SignInMouseClicked
 
     private void SignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpMouseClicked
-        //new SignUp().setVisible(true);
+        new SignUp().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_SignUpMouseClicked
 
