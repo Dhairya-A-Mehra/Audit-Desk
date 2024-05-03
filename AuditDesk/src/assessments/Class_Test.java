@@ -1,5 +1,5 @@
 package assessments;
-import home.Internal_Assessments;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -136,9 +136,9 @@ public class Class_Test extends javax.swing.JFrame {
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         // TODO add your handling code here:
-        Internal_Assessments i = new Internal_Assessments();
-        i.setVisible(true);
-        this.setVisible(false);
+//        Internal_Assessments i = new Internal_Assessments();
+//        i.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_submitActionPerformed
 
     /**

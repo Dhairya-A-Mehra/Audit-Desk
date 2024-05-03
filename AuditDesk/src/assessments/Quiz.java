@@ -9,7 +9,7 @@ package assessments;
  *
  * @author mpdha
  */
-import home.Internal_Assessments;
+
 public class Quiz extends javax.swing.JFrame {
 
     /**
@@ -138,10 +138,10 @@ public class Quiz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void quiz_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quiz_submitActionPerformed
-         
-        Internal_Assessments ia = new Internal_Assessments();
-        ia.setVisible(true);
-        this.setVisible(false);
+        // TODO add your handling code here:
+//        Internal_Assessments ia = new Internal_Assessments();
+//        ia.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_quiz_submitActionPerformed
 
     /**
