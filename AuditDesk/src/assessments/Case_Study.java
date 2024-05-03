@@ -1,5 +1,5 @@
 package assessments;
-import home.Internal_Assessments;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -133,10 +133,10 @@ public class Case_Study extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        
-        Internal_Assessments ia = new Internal_Assessments();
-        ia.setVisible(true);
-        this.setVisible(false);
+        // TODO add your handling code here:
+//      Internal_Assessments ia = new Internal_Assessments();
+//        ia.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_submitActionPerformed
 
     /**

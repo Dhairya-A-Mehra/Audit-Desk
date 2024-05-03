@@ -106,7 +106,6 @@ public class SignIn extends javax.swing.JFrame {
         if(conn!=null){
             try( Statement stmt = conn.createStatement()){
                 String username=usernameTextField.getText();
-                
                 if(username.length()!=0){
                     String userpass= String.valueOf(PasswordField.getPassword());
                     String query = "SELECT password FROM faculty where faculty_email= '"+username+"';";
@@ -118,7 +117,6 @@ public class SignIn extends javax.swing.JFrame {
                            // String program="";
                              query="select faculty_ID,faculty_name from faculty where faculty_email='"+username+"'";
                              rs =stmt.executeQuery(query);
-                             
                              while(rs.next()){
                                  facultyID=rs.getInt(1);
                                  fname=rs.getString(2);
@@ -129,7 +127,7 @@ public class SignIn extends javax.swing.JFrame {
                               JOptionPane.showMessageDialog(rootPane, "Logged in successful",
                                     "Success", JOptionPane.INFORMATION_MESSAGE);
                               new Main(foundUsername).setVisible(true);
-                              this.setVisible(false);
+                              this.dispose();
                         }
                     }
                 }else{
@@ -176,7 +174,7 @@ public class SignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        //new SignUp().setVisible(true);
+        new SignUp().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 

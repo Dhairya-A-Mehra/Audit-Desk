@@ -1,6 +1,7 @@
 package assessments;
 
-import home.Internal_Assessments;
+
+import assessments.Class_Test;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -133,9 +134,9 @@ public class Presentation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        Internal_Assessments ia = new Internal_Assessments();
-        ia.setVisible(true);
-        this.setVisible(false);
+//        Internal_Assessments ia = new Internal_Assessments();
+//        ia.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_submitActionPerformed
 
     /**
