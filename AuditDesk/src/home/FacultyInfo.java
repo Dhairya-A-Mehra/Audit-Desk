@@ -304,7 +304,7 @@ public class FacultyInfo extends javax.swing.JFrame {
          }catch(Exception e){
              e.printStackTrace();
          }
-        nextButton.setEnabled(true);        // TODO add your handling code here:
+        //nextButton.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
@@ -313,7 +313,12 @@ public class FacultyInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void proNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proNameComboBoxActionPerformed
-        // TODO add your handling code here:
+        if(proNameComboBox.getSelectedItem()=="B.Tech."){
+            natureComboBox.setSelectedIndex(0);
+            
+        }else{
+            natureComboBox.setSelectedIndex(1);
+        }
     }//GEN-LAST:event_proNameComboBoxActionPerformed
 
     /**
