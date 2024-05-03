@@ -95,7 +95,7 @@ create table Table_form_course (
 );
 
 create table table_form_internal_assessment (
-	assessment_id int auto_increment,
+	assessment_id int primary key auto_increment,
     assessment_type varchar(20),
     date_of_planned_assessment date,
     date_of_conducted_assessment date,
