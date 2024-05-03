@@ -9,8 +9,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Rutu Bhanderi
@@ -210,7 +215,7 @@ public class Activity extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        try {
+               try {
         
              Connection conn = DatabaseConnectivity.connectDatabase();
         
@@ -243,16 +248,14 @@ public class Activity extends javax.swing.JFrame {
         e.printStackTrace();
         JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
-                     
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try{
              Connection conn = DatabaseConnectivity.connectDatabase();
                       
-            String query =" UPDATE table_form_1 SET co_po_mapping=?,co_attainment_of_previous_year=?,action_planned_on_CO_attachment=?,session_plan=?"
-                    + ",evaluation_plan=?,ca_result=?,attendance=? "
-                    + " where form_id=1 ;";
+            String query ="INSERT INTO table_form_1 (form_id,co_po_mapping,co_attainment_of_previous_year,action_planned_on_CO_attachment,session_plan,evaluation_plan,ca_result,attendance) "
+                    + "values(?,?,?,?,?,?,?,?);";
             
             try (PreparedStatement pstmt = conn.prepareStatement(query)) {
                 pstmt.setInt(1,1);
@@ -278,15 +281,10 @@ public class Activity extends javax.swing.JFrame {
                                     "Error", JOptionPane.ERROR_MESSAGE);
                         }
        }catch(Exception e){
-           JOptionPane.showMessageDialog(rootPane, 
-                                    "Failure", 
-                                    "Error", JOptionPane.ERROR_MESSAGE);
+           e.printStackTrace();
         }
         }catch(Exception e){
-             JOptionPane.showMessageDialog(rootPane, 
-                                    "Failure", 
-                                    "Error", JOptionPane.ERROR_MESSAGE);
-        
+            e.printStackTrace();
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
