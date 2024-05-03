@@ -95,8 +95,7 @@ create table Table_form_course (
 );
 
 create table table_form_internal_assessment (
-	assessment_id int,
-    foreign key(assessment_id) references internal_assessment(assessment_id),
+	assessment_id int auto_increment;
     assessment_type varchar(20),
     date_of_planned_assessment date,
     date_of_conducted_assessment date,
